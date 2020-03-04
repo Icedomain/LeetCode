@@ -34,4 +34,3 @@ class Solution:
         pointer.next = None
         return head
 
-
