@@ -1,0 +1,38 @@
+% !TeX TS-program = xelatex
+
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{geometry}
+\geometry{a4paper,left=2cm,right=1.5cm,top=1cm,bottom=2cm}
+\usepackage{xcolor}     %高亮使用的颜色
+\definecolor{commentcolor}{RGB}{85,139,78}
+\definecolor{stringcolor}{RGB}{206,145,108}
+\definecolor{keywordcolor}{RGB}{34,34,250}
+\definecolor{backcolor}{RGB}{220,220,220}
+
+\usepackage{accsupp}    
+\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+
+\usepackage{listings}
+\lstset{            
+	breaklines,
+	linewidth=1.\linewidth,
+	columns=flexible,                   %高亮代码设置
+	commentstyle=\color{commentcolor},  %注释颜色
+	keywordstyle=\color{keywordcolor},  %关键词颜色
+	stringstyle=\color{stringcolor},    %字符串颜色
+	numbers=left,                       %行数显示在左侧
+	frame=single,                       %加框
+	backgroundcolor=\color{backcolor},  %列表背景色
+}
+
+\author{胡欣毅}
+\title{LeetCode Python版本}
+\date{} 
+
+\begin{document}
+\maketitle
+
+\input{python}
+
+\end{document}
