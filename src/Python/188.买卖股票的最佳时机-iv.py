@@ -5,10 +5,8 @@
 #
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
-        p_len = len(prices)
-
         #交易次数太多，用贪心
-        if k >= p_len//2:
+        if k >= len(prices)//2:
             return self.greedy(prices)
         
         # k=0的时候此时sell为空
@@ -28,7 +26,6 @@ class Solution:
         for i in range(1, len(prices)):
             if prices[i] > prices[i-1]:
                 res += prices[i] - prices[i-1]
-                
         return res
 
 
