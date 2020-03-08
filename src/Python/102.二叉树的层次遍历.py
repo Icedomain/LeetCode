@@ -12,20 +12,19 @@
 
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        if root is None:
-            return None
+        if not root :
+            return []
         result = [[]]
-        self.traverse(root,1,result)
+        self.traverse(root,0,result)
         return result
 
     def traverse(self,root,level,result):
-        if root is None:
+        if not root:
             return
-        if level > len(result):
+        if level >= len(result):
             result.append([])
-        result[level-1].append(root.val)
+        result[level].append(root.val)
         self.traverse(root.left,level+1,result)
         self.traverse(root.right,level+1,result)
 
-        
 

@@ -3,10 +3,9 @@
 #
 # [151] 翻转字符串里的单词
 #
-
 class Solution:
     def reverseWords(self, s: str) -> str:
-        if len(s) == 0:
+        if not s:
             return s
         
         '''
@@ -17,14 +16,13 @@ class Solution:
         '''
         s = s + " "
         l = 0
-        stack = []
+        res = []
         for i in range(l,len(s)):
             if s[i] == " " :
                 if l != i:
-                    stack.append(s[l:i])
+                    res.append(s[l:i])
                 l = i + 1
 
-        stack.reverse()
-        return " ".join(stack)
-
+        res.reverse()
+        return " ".join(res)
 

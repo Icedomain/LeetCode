@@ -21,7 +21,6 @@ class Solution:
         self.dfs(s,prev,n,[],res)
         return res
 
-
     def dfs(self,s,prev,cur,path,res):
         if cur == 0:
             # 终止条件
@@ -31,8 +30,6 @@ class Solution:
 
         for i in range(cur-1,-1,-1):
             if prev[cur][i]:
-                path.append(s[i:cur])
-                self.dfs(s,prev,i,path,res)
-                path.pop()
+                self.dfs(s,prev,i,path+[s[i:cur]],res)
 
 

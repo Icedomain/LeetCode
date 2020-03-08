@@ -14,10 +14,10 @@ class Solution:
         dummy = ListNode(0)
         dummy.next = head
         prev = dummy
-
+        # 走m-1个
         for i in range(m-1):
             prev = prev.next
-        
+        # 反转
         temp = None
         cur = prev.next
         for i in range(n-m+1):
@@ -27,12 +27,13 @@ class Solution:
             temp = cur
             # 下一个
             cur = next
-
+        # cur指向的是最后部分,中间已经没有了
+        # None 的下一个
         # 最后面一段
         prev.next.next = cur
         '''
         wi = temp
-        while wi.next is not None:
+        while wi.next :
             wi = wi.next
         wi.next = cur
         '''

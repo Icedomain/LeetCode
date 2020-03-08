@@ -8,12 +8,12 @@ class Solution:
         l = 0 
         r = len(numbers)-1
         while l <= r:
-            tmp = numbers[l]+numbers[r]
-            if tmp == target:
+            temp = numbers[l]+numbers[r]
+            if temp == target:
                 return [l+1 , r+1]
-            elif tmp < target :
+            elif temp < target :
                 l += 1
-            elif tmp> target:
+            elif temp > target:
                 r -= 1
 
 

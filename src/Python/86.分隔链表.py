@@ -22,6 +22,7 @@ class Solution:
                 l2.next = head
                 l2 = l2.next
             head = head.next
+        # l1 l2都在各自的尾部了
         l2.next = None
         l1.next = h2.next
 

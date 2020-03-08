@@ -3,7 +3,6 @@
 #
 # [128] 最长连续序列
 #
-
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         maxLen = 0

@@ -11,8 +11,9 @@ class Solution:
         left = 0
         right = 0
         min_len = len(s)
-        m = {}
         count = 0
+
+        m = {}
         # 统计t中字符数目
         for i in t:
             m[i] = m.get(i,0) + 1

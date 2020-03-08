@@ -3,7 +3,6 @@
 #
 # [89] 格雷编码
 #
-
 class Solution:
     def grayCode(self, n: int) -> List[int]:
         res = [0]

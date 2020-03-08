@@ -12,17 +12,15 @@
 
 class Solution:
     def flatten(self, root: TreeNode) -> None:
-        """
-        Do not return anything, modify root in-place instead.
-        """
         if root is None:
-            return None
+            return 
 
         self.flatten(root.left)
         self.flatten(root.right)
 
         if root.left is None:
             return
+
         # 左子树插到root和root.right之间
         p = root.left
         # 左子链的最后一个节点
@@ -33,6 +31,4 @@ class Solution:
         root.left = None
 
 
-
-        
 

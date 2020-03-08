@@ -20,7 +20,7 @@ class Solution:
     def dfs2(self, nums, index, path, res):
         res.append(path)
         for i in range(index, len(nums)):
-            if i != index and nums[i] == nums[i-1]:
+            if i > index and nums[i] == nums[i-1]:
                 continue
             self.dfs2(nums, i+1, path+[nums[i]], res)
 

@@ -12,7 +12,6 @@ class Solution:
         dp = [ [0 for _ in range(lt+1) ] for _ in range(ls+1)]
 
         # init
-        # 当母串子串都是0长度时，次数是1
         # 当子串长度为0时，所有次数都是1
         # 当母串长度为0时，所有次数都是0 (默认是0,不用重复了)
         for i in range(ls+1):
@@ -20,7 +19,9 @@ class Solution:
                 
         for i in range(1,ls+1):
             for j in range(1,lt+1):
+                # 跳过上一个字符串匹配过程
                 dp[i][j] = dp[i-1][j]
+                # 要匹配的话
                 if s[i-1] == t[j-1]:
                     dp[i][j] += dp[i - 1][j - 1]
                 

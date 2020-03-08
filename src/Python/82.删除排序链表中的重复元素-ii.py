@@ -21,6 +21,7 @@ class Solution:
                     head = head.next
                 head = head.next
                 prev.next = head
+            # 两个指针都往后走
             else:
                 prev = prev.next
                 head = head.next

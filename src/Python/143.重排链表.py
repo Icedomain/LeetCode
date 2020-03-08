@@ -11,9 +11,6 @@
 
 class Solution:
     def reorderList(self, head: ListNode) -> None:
-        """
-        Do not return anything, modify head in-place instead.
-        """
         if head is None or head.next is None:
             return head
         p1 ,p2 = head , head
@@ -44,11 +41,7 @@ class Solution:
             p1.next = rever
             rever.next = temp
             # 下一个循环
-            rever = temp2
             p1 = temp 
-        
+            rever = temp2
         return head
-
-
-        
 

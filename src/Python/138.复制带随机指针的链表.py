@@ -30,8 +30,8 @@ class Solution:
             headcopy = headcopy.next.next
 
         # 拆分两个单链表
-        pnew = res = head.next
         src = head
+        pnew = res = head.next
 
         while pnew.next:
             src.next = pnew.next
@@ -42,7 +42,4 @@ class Solution:
         pnew.next = None
 
         return res
-
-
-        
 

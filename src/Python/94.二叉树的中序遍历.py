@@ -29,5 +29,4 @@ class Solution:
 
         return result
 
-        
 

@@ -5,9 +5,9 @@
 #
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        if len(a)==0: 
+        if not a: 
             return b
-        if len(b)==0: 
+        if not b: 
             return a
         # 最后都是1 前面的相加 再加1 补0
         if a[-1] == '1' and b[-1] == '1':

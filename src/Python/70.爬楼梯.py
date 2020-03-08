@@ -13,5 +13,4 @@ class Solution:
         for i in range(2, n):
             b ,a = a+b , b 
         return b
-        
 

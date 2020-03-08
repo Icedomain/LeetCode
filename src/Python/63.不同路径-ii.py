@@ -20,7 +20,6 @@ class Solution:
         for i in range(1, r):
             for j in range(1, c):
                 mat[i][j] = (mat[i][j-1] + mat[i-1][j]) * (1 - obstacleGrid[i][j])
-        return mat[r-1][c-1]
+        return mat[-1][-1]
 
-        
 

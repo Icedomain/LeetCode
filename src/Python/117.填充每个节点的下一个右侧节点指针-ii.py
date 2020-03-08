@@ -15,27 +15,24 @@ class Node:
 class Solution:
     def connect(self, root: 'Node') -> 'Node':
         head = root
-        dummyHead = Node(-1)
-        pre = dummyHead
-        # dummyHead 当前行的最左端节点
+        dummy = Node(-1)
+        prev = dummy
+        # dummy 当前行的最左端节点
         while root :
             if root.left :
-                pre.next = root.left
-                pre = pre.next
+                prev.next = root.left
+                prev = prev.next
             if root.right :
-                pre.next = root.right
-                pre = pre.next
+                prev.next = root.right
+                prev = prev.next
             root = root.next
             # 行的尾部
             if root is None:
-                # pre值新的
-                pre = dummyHead
-                # dummyHead.next为前面pre.next 第一次赋值的节点
-                root = dummyHead.next
+                # dummy.next为前面prev.next 第一次赋值的节点
+                root = dummy.next
                 #前面链接断开,开始新的一行
-                dummyHead.next = None
+                dummy.next = None
+                # prev值新的
+                prev = dummy
         return head
-
-
-
 

@@ -11,8 +11,9 @@
 
 class Solution:
     def insertionSortList(self, head: ListNode) -> ListNode:
-        p = dummy = ListNode(-1000)
+        dummy = ListNode(-1000)
         dummy.next = head
+        p = dummy
         cur = head
         while cur and cur.next:
             val = cur.next.val
@@ -21,13 +22,14 @@ class Solution:
                 cur = cur.next
                 continue
             # 找到p(小于的最后一个节点)
+            # 这个相当于p重新初始化
             if p.next.val > val:
                 p = dummy
             while p.next.val < val:
                 p = p.next
-            # 交换节点
+            # 右边的节点插入到左边去
             next_step = cur.next
-            cur.next = next_step.next
+            cur.next = cur.next.next
             next_step.next = p.next
             p.next = next_step
         return dummy.next

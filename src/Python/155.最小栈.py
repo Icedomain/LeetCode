@@ -4,11 +4,7 @@
 # [155] 最小栈
 #
 class MinStack:
-
     def __init__(self):
-        """
-        initialize your data structure here.
-        """
         self.stack = []
         self.min_stack = []
 
@@ -17,6 +13,7 @@ class MinStack:
         if len(self.min_stack) == 0:
             self.min_stack.append(x)
             return
+        # x 和栈尾 哪个小压哪个
         if x <= self.min_stack[-1]:
             self.min_stack.append(x)
         else:
@@ -36,7 +33,6 @@ class MinStack:
         if len(self.min_stack)>0:
             return self.min_stack[-1]
         return None  
-
 
 # Your MinStack object will be instantiated and called as such:
 # obj = MinStack()

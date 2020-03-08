@@ -13,16 +13,16 @@
 class Solution:
     def postorderTraversal(self, root: TreeNode) -> List[int]:
         if root is None:
-            return None
+            return []
         result = []
         stack = []
         stack.append(root)
         while stack:
             p = stack.pop()
-            if p :
-                result.append(p.val)
+            result.append(p.val)
+            if p.left :                
                 stack.append(p.left)
+            if p.right:
                 stack.append(p.right)
-
         return result[::-1]
 

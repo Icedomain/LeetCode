@@ -28,8 +28,5 @@ class Solution:
             if i != 0 and substr[0] == '0':
                 continue
             if substr and int(substr) >= 0 and int(substr) <= 255:
-                ip.append(substr)
-                self.dfs(s,ip,res,start + i + 1)
-                ip.pop()
-
+                self.dfs(s,ip+[substr],res,start + i + 1)
 

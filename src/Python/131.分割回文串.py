@@ -5,19 +5,17 @@
 #
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
-        result = []
-        self.recurPartition(s,result, [],  0)
-        return result
+        res = []
+        self.dfs(s,res, [],  0)
+        return res
 
-    def recurPartition(self,s, result, curr, start):
+    def dfs(self,s, res, path, start):
         if start == len(s):
-            result.append(list(curr))
+            res.append(path)
             return 
         for i in range(start, len(s)):
             if self.isPalindrome(s, start, i):
-                curr.append(s[start:i+1])
-                self.recurPartition(s,result,curr ,i + 1)
-                curr.pop()
+                self.dfs(s,res,path +[s[start:i+1]],i + 1)
     # 判断回文
     def isPalindrome(self, s, begin, end):
         while begin < end :

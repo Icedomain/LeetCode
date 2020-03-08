@@ -20,11 +20,11 @@ class Solution:
         res = []
         if start > end:
             # 空子树情况
-            res.append(None)
-            return res
+            return [None]
         for i in range(start,end+1):
             lefts = self.get_trees(start,i-1)
             rights = self.get_trees(i+1,end)
+            # lefts 和 rights 有可能是空的[None]
             for l in lefts:
                 for r in rights:
                     root = TreeNode(i)

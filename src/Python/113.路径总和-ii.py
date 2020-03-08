@@ -15,16 +15,16 @@ class Solution:
         if root is None:
             return []
         result = []
-        self.pathSum2(root, sum, [], result)
+        self.dfs(root, sum, [], result)
         return result
     
-    def pathSum2(self,root,sum,path,result):
+    def dfs(self,root,sum,path,result):
         if root is None:
             return
         if root.left is None and root.right is None and sum == root.val: 
             path.append(root.val)
             result.append(path)
 
-        self.pathSum2(root.left,  sum - root.val, path + [root.val], result)
-        self.pathSum2(root.right, sum - root.val, path + [root.val], result)
+        self.dfs(root.left,  sum - root.val, path + [root.val], result)
+        self.dfs(root.right, sum - root.val, path + [root.val], result)
 

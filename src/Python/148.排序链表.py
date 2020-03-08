@@ -33,4 +33,4 @@ class Solution:
                 l2 = l2.next
             now = now.next
         now.next = l1 or l2
-        return res.next  # 把0去掉
+        return res.next

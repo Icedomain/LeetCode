@@ -13,7 +13,7 @@
 class Solution:
     def preorderTraversal(self, root: TreeNode) -> List[int]:
         if root is None:
-            return None
+            return []
         result = []
         stack = []
         stack.append(root)

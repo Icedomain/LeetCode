@@ -20,6 +20,6 @@ class Solution:
         res = [1]*(rowIndex+1)
         # 从后往前,从上往下覆盖
         for r in range(2,rowIndex+1):
-            for col in range(r-1, 0  ,-1):# 逆序
+            for col in range(r-1,0,-1):# 逆序
                 res[col] += res[col-1]
         return res

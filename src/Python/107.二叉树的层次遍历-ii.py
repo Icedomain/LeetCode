@@ -12,13 +12,13 @@
 
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
-        '''
-        if root is None:
+        
+        if not root:
             return []
         # use stack
         stack = [[root]]
         res = []
-        while len(stack) > 0:
+        while stack:
             # 取出最新装入的list
             top = stack.pop()
             # 一直在头部插入以达到倒序
@@ -26,31 +26,30 @@ class Solution:
             # 向下新一轮扫描
             temp = []
             for node in top:
-                if node.left is not None:
+                if node.left :
                     temp.append(node.left)
-                if node.right is not None:
+                if node.right :
                     temp.append(node.right)
-            if len(temp) > 0:
+            if temp:
                 stack.append(temp)
         return res
         '''
-        
         # 递归法
-        if root is None:
-            return None
+        if not root:
+            return []
         result = [[]]
-        self.traverse(root,1,result)
-        return reversed(result)
+        self.traverse(root,0,result)
+        result.reverse()
+        return result
+        '''
 
     def traverse(self,root,level,result):
         if root is None:
             return
-        if level > len(result):
+        if level >= len(result):
             result.append([])
-        result[level-1].append(root.val)
+        result[level].append(root.val)
         self.traverse(root.left,level+1,result)
         self.traverse(root.right,level+1,result)
-
-
 
 

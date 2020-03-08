@@ -3,12 +3,10 @@
 #
 # [153] 寻找旋转排序数组中的最小值
 #
-
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         if len(nums) == 1 or nums[0] < nums[-1]: # 升序
             return nums[0]
-        
         l , r = 0, len(nums)-1
         while l < r :
             mid = (l+r)//2
@@ -18,6 +16,5 @@ class Solution:
             # 在右边
             else:
                 r = mid
-        
         return nums[l]
 

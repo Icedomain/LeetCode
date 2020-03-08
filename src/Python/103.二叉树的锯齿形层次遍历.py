@@ -12,22 +12,22 @@
 
 class Solution:
     def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
-        if root is None:
-            return None
+        if not root :
+            return []
         result = [[]]
-        self.traverse(root,1,result,True)
+        self.traverse(root,0,result,True)
         return result
 
     def traverse(self,root,level,result,flag):
         if root is None:
             return
-        if level > len(result):
+        if level >= len(result):
             result.append([])
         
         if flag:
-            result[level-1].append(root.val)
+            result[level].append(root.val)
         else:
-            result[level-1].insert(0,root.val)
+            result[level].insert(0,root.val)
         self.traverse(root.left,level+1,result, not flag)
         self.traverse(root.right,level+1,result, not flag)
 
