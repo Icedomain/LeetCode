@@ -1,23 +1,34 @@
 import os
 import numpy
+
+### python部分
+
 mycode = os.listdir('../src/Python/')
+num = len(mycode)
 mycode = sorted(mycode,key = lambda x: int(x.split('.')[0]) )
 
 filename = 'python.tex'
 with open(filename, 'w') as file_object:
+    kaitou = f"本文档一共统计了{num}道题\n"
+    file_object.write(kaitou)
     for file in mycode:
         res = "\lstinputlisting[language=Python]{" + f'../src/Python/{file}' + "}\n"
         print(res)
         file_object.write(res)
         #break
 
+
+### c++部分
 mycode = os.listdir('../src/Cplusplus/')
+num = len(mycode)
 mycode = sorted(mycode,key = lambda x: int(x.split('.')[0]) )
 
 filename = 'cpp.tex'
 with open(filename, 'w') as file_object:
+    kaitou = f"本文档一共统计了{num}道题\n"
+    file_object.write(kaitou)
     for file in mycode:
-        res = "\lstinputlisting[language=Python]{" + f'../src/Cplusplus/{file}' + "}\n"
+        res = "\lstinputlisting[language=C++]{" + f'../src/Cplusplus/{file}' + "}\n"
         print(res)
         file_object.write(res)
         #break
