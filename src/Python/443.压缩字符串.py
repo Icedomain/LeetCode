@@ -23,8 +23,8 @@ class Solution:
             if count > 1:
                 for c in str(count):
                     # 写数字
-                    chars[walker+1] = c
                     walker += 1
+                    chars[walker] = c
             
             runner += 1
             walker += 1
@@ -32,5 +32,4 @@ class Solution:
         return walker
 
 
-        
 

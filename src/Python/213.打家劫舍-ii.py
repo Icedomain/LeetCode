@@ -9,16 +9,17 @@ class Solution:
             return 0
         if len(nums) == 1:
             return nums[0]
+        # 奇偶串
         return max(
             self.robb(nums[0:-1]),
-            self.robb(nums[len(nums) != 1:])
+            self.robb(nums[1:])
         )
 
     def robb(self ,nums):
-        now = prev = 0
-        for num in nums:
-            now , prev = max(now , prev+num) , now
-        return now
-
-        
+        mx = prev = 0
+        for i in nums:
+            temp = mx
+            mx = max(mx , prev + i )
+            prev = temp
+        return mx
 

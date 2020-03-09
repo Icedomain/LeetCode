@@ -10,10 +10,6 @@
 
 class Solution:
     def firstBadVersion(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
         l ,r = 0 , n-1
         while l <= r:
             mid = (l+r)//2
@@ -22,6 +18,4 @@ class Solution:
             elif isBadVersion(n) == isBadVersion(mid):
                 r = mid -1
         return  l
-
-        
 

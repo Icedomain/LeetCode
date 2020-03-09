@@ -3,7 +3,6 @@
 #
 # [229] 求众数 II
 #
-
 class Solution:
     def majorityElement(self, nums: List[int]) -> List[int]:
         # 摩尔投票法得到两个大多数

@@ -37,7 +37,7 @@ class Solution:
             return []
 
     def count(self,root):
-        if root :
-            return self.count(root.left) + self.count(root.right) + 1
-        else:
-            return 0
+        if not root :
+            return 0 
+        return self.count(root.left) + self.count(root.right) + 1
+

@@ -5,20 +5,21 @@
 #
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
-
-        c = collections.Counter(nums)
-        dui = 0
-
+        dic = {}
         if k < 0 :
             return 0
-        elif k == 0 :
-            for i in c.keys():
-                if c[i]>1:
-                    dui += 1
-        else:
-            for i in c.keys():
-                if i + k in c:
-                    dui +=1
-        return dui
+        res = 0
+        for num in nums:
+            dic[num] = dic.get(num,0) + 1
+        for num in nums:
+            # 值在里面 且 k 不为0
+            if dic.get(num-k,0) > 0 and k != 0:
+                res += 1
+                dic[num-k] = 0
+            # k 为0,值有多个
+            elif k == 0 and dic.get(num,0) > 1:
+                res += 1
+                dic[num-k] = 0
+        return res
 
 

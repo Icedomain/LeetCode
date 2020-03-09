@@ -3,7 +3,6 @@
 #
 # [275] H指数 II
 #
-
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
         i = 0

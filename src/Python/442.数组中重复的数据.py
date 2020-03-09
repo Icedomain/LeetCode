@@ -5,13 +5,12 @@
 #
 class Solution:
     def findDuplicates(self, nums: List[int]) -> List[int]:
-        returnlist=[]
+        res = []
         for x in nums:
             x = abs(x)
-            if nums[x-1]<0:# 出现过了
-                returnlist.append(x)
+            # 若x出现过了,x-1对应位置的值是负的(减一是为了超出范围)
+            if nums[x-1] < 0:                
+                res.append(x)
             else:
-                nums[x-1]*=-1
-        return returnlist
-
-
+                nums[x-1] *= -1
+        return res

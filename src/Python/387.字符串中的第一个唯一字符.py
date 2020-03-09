@@ -12,6 +12,3 @@ class Solution:
             if letter_map[s[i]] == 1:
                 return i
         return -1
-
-        
-

@@ -3,7 +3,6 @@
 #
 # [354] 俄罗斯套娃信封问题
 #
-
 class Solution:
     def maxEnvelopes(self, envelopes: List[List[int]]) -> int:
         if not envelopes:

@@ -10,11 +10,8 @@ class NumArray:
         for i in range(len(nums)):
             self.list[i+1] = self.list[i] + nums[i]
 
-        
-
     def sumRange(self, i: int, j: int) -> int:
         return self.list[j+1] - self.list[i]
-        
 
 
 # Your NumArray object will be instantiated and called as such:

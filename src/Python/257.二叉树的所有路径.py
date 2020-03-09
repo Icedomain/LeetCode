@@ -12,24 +12,22 @@
 
 class Solution:
     def binaryTreePaths(self, root: TreeNode) -> List[str]:
-        if root is None:
+        if not root:
             return []
-        paths = []
-        # 路径　节点　现有的子路
-        self.getpath(paths , root, [])
-        res = ['->'.join(path) for path in paths]
-        return res
+        res = []
+        self.dfs(root, [] ,res )
+        paths = ['->'.join(path) for path in res ]
+        return paths
 
-    def getpath(self , res , node , path ):
-        # 没有左右子树
-        if node.left is None and node.right is None:
-            res.append(path + [str(node.val)]) 
+    def dfs(self , node , path ,res):
+        # 终止条件 没有子节点
+        if not node.left and not node.right:
+            res.append(path+[str(node.val)]) 
             return
-        # 否则
         path = path + [str(node.val)]
-        if node.left is not None:
-            self.getpath(res ,node.left ,path  )
-        if node.right is not None:
-            self.getpath(res ,node.right ,path  )
+        if node.left:
+            self.dfs(node.left  , path , res )
+        if node.right:
+            self.dfs(node.right , path, res )
         
 

@@ -15,7 +15,6 @@ class Solution:
             for i in range(ls):
                 while ugly[ix[i]]*primes[i]<= newugly:
                     ix[i] += 1
-                
             idx += 1            
         return ugly[-1]
 

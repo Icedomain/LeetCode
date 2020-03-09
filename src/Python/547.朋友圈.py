@@ -3,7 +3,6 @@
 #
 # [547] 朋友圈
 #
-
 class Solution:
     def findCircleNum(self, M: List[List[int]]) -> int:
         # 遍历每个人,遍历到过置1

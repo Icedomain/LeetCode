@@ -13,5 +13,5 @@ class Solution:
             while num % d == 0:
                 num /= d
         return num == 1
-        
+
 

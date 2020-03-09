@@ -7,23 +7,23 @@ class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         '''
         # time Limit Exceeded
-        out = []
+        res = []
         leng = len(nums)
         for i in range(leng):
             if i+1 not in nums:
-                out.append(i+1)
-        return out
+                res.append(i+1)
+        return res
         '''
         for num in nums:
             index = abs(num)-1
             if nums[index]>0:
                 nums[index] *= -1
         
-        out = []
+        res = []
         for i in range(len(nums)):
-            if nums[i]>0:
-                out.append(i+1)
-        return out
+            if nums[i] > 0:
+                res.append(i+1)
+        return res
 
 
 

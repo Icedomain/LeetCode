@@ -13,17 +13,14 @@ class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         if head is None or head.next is None:
             return head
-        point = head # 他来往后走
+        curr = head # 他来往后走
         prev = None  # 新的反转的
-        while point:
+        while curr:
             # 下一步先保存下来
-            nextpoint = point.next
+            nextcurr = curr.next
             # 反转的接上去
-            point.next = prev
-            prev  = point
+            curr.next = prev
+            prev  = curr
             # 下一步
-            point = nextpoint
+            curr = nextcurr
         return prev
-
-        
-

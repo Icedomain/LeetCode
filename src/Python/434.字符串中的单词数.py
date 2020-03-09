@@ -7,6 +7,7 @@ class Solution:
     def countSegments(self, s: str) -> int:
         if not s:
             return 0 
+        '''
         segment_count = 0
         for i in range(len(s)):
             if i == 0 and s[i] != ' ':
@@ -15,5 +16,8 @@ class Solution:
                 segment_count += 1
 
         return segment_count        
-        
+        '''
+        s_list = list(s.split(" "))
+        s_list = [i for i in s_list if i != " " and i != "" ]
+        return len(s_list)
 

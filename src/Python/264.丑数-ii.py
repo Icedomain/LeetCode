@@ -20,5 +20,5 @@ class Solution:
                 i5 += 1
             idx += 1            
         return ugly[-1]
-        
+
 

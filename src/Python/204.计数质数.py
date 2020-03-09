@@ -14,5 +14,4 @@ class Solution:
                 for j in range(2,(n-1)//i+1):
                     res[i*j] = 0
         return sum(res)
-        
 

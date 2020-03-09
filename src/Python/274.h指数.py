@@ -3,7 +3,6 @@
 #
 # [274] H指数
 #
-
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
         citations.sort()

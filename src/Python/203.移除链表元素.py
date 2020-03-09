@@ -3,6 +3,7 @@
 #
 # [203] 移除链表元素
 #
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -11,16 +12,15 @@
 
 class Solution:
     def removeElements(self, head: ListNode, val: int) -> ListNode:
-        
-        prehead = ListNode(-1)
-        prehead.next = head
-        last, pos = prehead, head
-        while pos is not None:
-            if pos.val == val:
-                # last 跟上了pos
-                last.next = pos.next
+        dummy = ListNode(-1)
+        dummy.next = head
+        prev, curr = dummy, head
+        while curr :
+            if curr.val == val:
+                # prev 跟上了curr
+                prev.next = curr.next
             else:
-                last = pos
-            pos = pos.next
-        return prehead.next
+                prev = curr
+            curr = curr.next
+        return dummy.next
 

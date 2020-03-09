@@ -3,7 +3,6 @@
 #
 # [393] UTF-8 编码验证
 #
-
 class Solution:
     def validUtf8(self, data: List[int]) -> bool:
         # cnt表示后面接几个字节字符
