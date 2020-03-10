@@ -5,40 +5,17 @@
 #
 class Solution:
     def imageSmoother(self, M: List[List[int]]) -> List[List[int]]:
-    #def imageSmoother(self, M):
-        r = len(M)
-        c = len(M[0])
-        res = []
-        
-        for i in range(r):
-            tmp = []
-            for j in range(c):
-                value,count=M[i][j],1
-                if i-1>=0:
-                    value += M[i-1][j]
-                    count += 1
-                    if j-1>=0:
-                        value += M[i-1][j-1]
-                        count += 1
-                    if j+1<c:
-                        value += M[i-1][j+1]
-                        count += 1
-                if i+1<r:
-                    value += M[i+1][j]
-                    count += 1
-                    if j-1>=0:
-                        value += M[i+1][j-1]
-                        count += 1
-                    if j+1<c:
-                        value += M[i+1][j+1]
-                        count += 1
-                if j-1>=0:
-                    value += M[i][j-1]
-                    count += 1
-                if j+1<c:
-                    value += M[i][j+1]
-                    count += 1
-                tmp.append(int(value/count))
-            res.append(tmp)
+        R, C = len(M), len(M[0])
+        res = [[0] * C for _ in range(R)]
+
+        for r in range(R):
+            for c in range(C):
+                count = 0
+                for nr in (r-1, r, r+1):
+                    for nc in (c-1, c, c+1):
+                        if 0 <= nr < R and 0 <= nc < C:
+                            res[r][c] += M[nr][nc]
+                            count += 1
+                res[r][c] //= count
         return res
 

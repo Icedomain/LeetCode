@@ -16,5 +16,5 @@ class Solution:
                 res = max(res,count)
                 count = 1
         return max(res,count)
-                
+
 

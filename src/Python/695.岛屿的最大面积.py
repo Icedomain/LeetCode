@@ -5,27 +5,26 @@
 #
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        ans = 0
+        res = 0
         for i in range(len(grid)):
             for j in range(len(grid[0])):
                 if grid[i][j] == 1:
-                    grid[i][j] = 0
-                    ans = max(self.dfs(grid, i, j), ans)
-                    # ans = max(self.bfs(grid, i, j), ans)
-        return ans
+                    temp = self.dfs(grid, i, j)
+                    res = max(res,temp)
+        return res
 
     def dfs(self, grid, i, j):
-        # DFS based on stack
-        stack = [(i, j)]
-        area = 0
-        # Stack for DFS
-        while stack:
-            r, c = stack.pop(-1)
-            area += 1
-            for nr, nc in ((r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)):
-                if (0 <= nr < len(grid) and
-                        0 <= nc < len(grid[0]) and grid[nr][nc]):
-                    stack.append((nr, nc))
-                    grid[nr][nc] = 0
-        return area        
+        # 终止条件
+        if i <  0 or j < 0 or i >= len(grid) or j >= len(grid[0]) or grid[i][j] == 0:
+            return 0
+
+        # 四个方向搜索
+        grid[i][j] = 0
+        res = 1
+        res += self.dfs(grid, i-1, j)
+        res += self.dfs(grid, i, j-1)
+        res += self.dfs(grid, i+1, j)
+        res += self.dfs(grid, i, j+1)
+
+        return res
 

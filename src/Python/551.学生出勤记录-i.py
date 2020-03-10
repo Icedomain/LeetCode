@@ -16,5 +16,4 @@ class Solution:
                 and s[i-1] == 'L' == s[i+1]: 
                 return False
         return True
-        
 

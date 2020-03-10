@@ -10,5 +10,4 @@ class Solution:
             tmp += (nums[i]-nums[i-k])
             maxmean = max(maxmean,tmp)
         return maxmean/k
- 
 
