@@ -12,6 +12,7 @@ class Solution:
         for i in range(len(M)):
             # 等于1表示被别的圈包进去了,等于0表示再开一个圈
             if visited[i] == 0:
+                visited[i] = 1
                 self.dfs(M, visited, i)
                 count += 1
         return count

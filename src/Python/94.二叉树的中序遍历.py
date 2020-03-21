@@ -13,7 +13,8 @@
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if root is None:
-            return None
+            return []
+        '''
         result = []
         stack = []
         p = root
@@ -28,5 +29,13 @@ class Solution:
                 p = p.right
 
         return result
+        '''
 
+        return self.inorder(root)
+
+    def inorder(self,r):
+        if r:
+            return self.inorder(r.left) + [r.val] + self.inorder(r.right)  
+        else:
+            return []
 
