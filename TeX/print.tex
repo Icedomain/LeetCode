@@ -1,0 +1,40 @@
+% !TeX TS-program = xelatex
+
+\documentclass{article}
+\usepackage{ctex}
+\CTEXoptions[today=old]
+\usepackage{geometry}
+\geometry{a4paper,left=2.5cm,right=2.0cm,top=1cm,bottom=2cm}
+\usepackage{xcolor}     %高亮使用的颜色
+\definecolor{commentcolor}{RGB}{85,139,78}
+\definecolor{stringcolor}{RGB}{206,145,108}
+\definecolor{keywordcolor}{RGB}{34,34,250}
+\definecolor{backcolor}{RGB}{220,220,220}
+
+\usepackage{accsupp}    
+\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+
+\usepackage{listings}
+\lstset{            
+	breaklines,
+	linewidth=1.\linewidth,
+	columns=flexible,                   %高亮代码设置
+	numbers=left,                       %行数显示在左侧
+	frame=single,                       %加框
+}
+
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+
+
+\author{\large 胡欣毅(icedomain\_hu@qq.com)\\
+	\href{https://github.com/Icedomain/LeetCode}{https://github.com/Icedomain/LeetCode} }
+%\author{}
+\title{LeetCode 题解(Python版本)}
+\date{最后更新 \today} 
+
+\begin{document}
+\maketitle
+
+\input{python}
+
+\end{document}
