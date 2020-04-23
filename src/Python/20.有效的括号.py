@@ -8,6 +8,17 @@ class Solution:
         # 判断是否是奇数或空字符
         if s=='':
             return True
+        stack = []
+        match = {')': '(', ']': '[', '}': '{'}
+        for ch in s:
+            if ch in match:
+                if not (stack and stack.pop() == match[ch]):
+                    return False
+            else:
+                stack.append(ch)
+        return not stack
+
+        '''
         if len(s) %2 != 0:
             return False
         count = 0
@@ -21,6 +32,6 @@ class Solution:
             return False
         else:
             return True
-
+        '''
 
 

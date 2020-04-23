@@ -30,6 +30,7 @@ class Solution:
         return dummy.next
     
     def reverse(self, start, end):
+        # 输入一个是前驱,一个后驱
         prev, curr = start, start.next
         first = curr
         while curr != end:

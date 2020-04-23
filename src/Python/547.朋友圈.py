@@ -20,7 +20,8 @@ class Solution:
     # 判断和i认识的都是哪些人
     def dfs(self, M, visited, i):
         # 全1了
-        if sum(visited) == len(M):
+        # if sum(visited) == len(M):
+        if all(visited):
             return 
         for j in range(len(M)):
             if j != i and visited[j] == 0 and M[i][j] == 1 :

@@ -16,10 +16,9 @@ class Solution:
         )
 
     def robb(self ,nums):
-        mx = prev = 0
+        f1 = 0
+        f2 = 0
         for i in nums:
-            temp = mx
-            mx = max(mx , prev + i )
-            prev = temp
-        return mx
-
+            fi = max(f2+i,f1)
+            f1 ,f2 = fi ,f1
+        return f1

@@ -13,7 +13,7 @@ class Solution:
         return self.qSelect(nums, 0, len(nums) - 1, k)
 
     def qSelect(self, nums, start, end, k):
-        '''        
+        '''
         if start > end:
             return float('inf')
         '''

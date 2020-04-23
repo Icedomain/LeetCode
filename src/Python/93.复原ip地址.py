@@ -27,6 +27,6 @@ class Solution:
             # 允许单个0,但是不允许0开头的一串,比如025
             if i != 0 and substr[0] == '0':
                 continue
-            if substr and int(substr) >= 0 and int(substr) <= 255:
+            if int(substr) >= 0 and int(substr) <= 255:
                 self.dfs(s,ip+[substr],res,start + i + 1)
 

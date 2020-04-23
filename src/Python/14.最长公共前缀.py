@@ -14,7 +14,7 @@ class Solution:
             ret +=char[0]
         return ret
         '''
-        if len(strs) == 0:
+        if not strs:
             return ''
         strs.sort(key = lambda x : len(x))
         for idx in range(len(strs[0])):

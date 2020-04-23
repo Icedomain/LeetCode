@@ -17,10 +17,6 @@ class Solution:
                 return False
         return True
         '''
-
-        """
-        思路：  
-        """
         
         words = str.split(" ")
         hash_table_pattern = {}

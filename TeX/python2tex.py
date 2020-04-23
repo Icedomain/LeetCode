@@ -3,7 +3,7 @@ import numpy
 
 ### python部分
 
-mycode = os.listdir('../src/Python/')
+mycode = [i for i in os.listdir('../src/Python/') if i.endswith('.py')]
 num = len(mycode)
 mycode = sorted(mycode,key = lambda x: int(x.split('.')[0]) )
 
@@ -19,7 +19,7 @@ with open(filename, 'w') as file_object:
 
 
 ### c++部分
-mycode = os.listdir('../src/Cplusplus/')
+mycode = [i for i in os.listdir('../src/Cplusplus/') if i.endswith('.cpp')]
 num = len(mycode)
 mycode = sorted(mycode,key = lambda x: int(x.split('.')[0]) )
 

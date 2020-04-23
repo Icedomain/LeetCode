@@ -6,10 +6,7 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         adjacency = [[] for _ in range(numCourses)]
-        # flag标志
-        # 0:未访问 
-        # 1:已被当前节点启动的访问
-        #-1:已被其他节点启动的访问
+
         flags = [0 for _ in range(numCourses)]
         #(cur,pre)对
         for cur, pre in prerequisites:
@@ -20,6 +17,10 @@ class Solution:
         return True
 
     def dfs(self,i, adjacency, flags):
+        # flag标志
+        # 0:未访问 
+        # 1:已被当前节点启动的访问
+        #-1:已被其他节点启动的访问
         if flags[i] == -1: 
             return True
         if flags[i] == 1: 

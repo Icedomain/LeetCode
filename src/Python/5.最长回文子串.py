@@ -15,7 +15,7 @@ class Solution:
         for j in range(len(s)):
             # 对角线置1
             dp[j][j] = 1
-            for i in range(j):
+            for i in range(j-1,-1,-1):
                 if s[i] == s[j] and (j-i < 2 or dp[i+1][j-1]):
                     dp[i][j] = 1
                 if dp[i][j] and max_len < j-i+1:
