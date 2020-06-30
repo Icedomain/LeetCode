@@ -35,6 +35,6 @@ class Solution:
             self.dfs(board,i,j-1,row,col)
             self.dfs(board,i+1,j,row,col)
             self.dfs(board,i,j+1,row,col)
-        return  
+
 
 

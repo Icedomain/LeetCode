@@ -16,7 +16,7 @@ class Solution:
             for word in level:
                 # 不同位置都可以插入不同字母进行新单词重构
                 for i in range(len(beginWord)):
-                    for c in 'abcdefghijklmnopqrstuvwxyz':                
+                    for c in 'abcdefghijklmnopqrstuvwxyz':
                         newWord = word[:i] + c + word[i+1:]
                         if newWord in wordset and newWord not in parents:
                             next_level[newWord].add(word)
@@ -29,4 +29,5 @@ class Solution:
             # 确定是等长的
             res = [[p]+r for r in res for p in parents[r[0]]]
         return res
+
 

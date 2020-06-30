@@ -14,7 +14,6 @@ class Solution:
                 return False
             else:
                 mem.add(n)
-        else:
-            return True
+        return True
 
 

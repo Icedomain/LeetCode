@@ -27,7 +27,6 @@ class Solution:
                 p = stack.pop()
                 result.append(p.val)
                 p = p.right
-
         return result
         '''
 

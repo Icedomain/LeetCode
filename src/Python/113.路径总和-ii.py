@@ -21,10 +21,10 @@ class Solution:
     def dfs(self,root,sum,path,result):
         if root is None:
             return
-        if root.left is None and root.right is None and sum == root.val: 
+        if root. left is None and root.right is None and sum == root.val:
             path.append(root.val)
-            result.append(path)
-
+            result .append(path)
+            
         self.dfs(root.left,  sum - root.val, path + [root.val], result)
         self.dfs(root.right, sum - root.val, path + [root.val], result)
 

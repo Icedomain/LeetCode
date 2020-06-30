@@ -13,22 +13,21 @@ class Solution:
     def isPalindrome(self, head: ListNode) -> bool:
         if head is None:
             return True
-        rev = None
+        # slow 到中部   fast 到尾部
+        # prev 前半部分的反向
         slow = fast = head
-        # fast 到尾部
-        # slow 到中部
-        # rev 前半部分的反向
+        prev = None
         while fast and fast.next:
             fast = fast.next.next
-            rev, rev.next ,slow = slow, rev , slow.next
+            prev, prev.next, slow = slow, prev, slow.next
         # 奇
         if fast:
             slow = slow.next
         # 一个向左,一个向右
-        while rev :
-            if rev.val != slow.val:
+        while prev :
+            if prev.val != slow.val:
                 return False
             slow = slow.next
-            rev = rev.next
+            prev = prev.next
         return True
 

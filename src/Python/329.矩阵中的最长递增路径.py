@@ -8,7 +8,8 @@ class Solution:
         if not matrix :
             return 0
         
-        m, n, res = len(matrix), len(matrix[0]), 0
+        m, n = len(matrix), len(matrix[0])
+        res = 0
         # 用于记录每个点的最长递增路径的长度
         cache = [[-1 for _ in range(n)] for _ in range(m)]
 

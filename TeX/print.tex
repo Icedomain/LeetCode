@@ -2,6 +2,7 @@
 
 \documentclass{article}
 \usepackage{ctex}
+\usepackage{pdfpages}
 \CTEXoptions[today=old]
 \usepackage{geometry}
 \geometry{a4paper,left=2.5cm,right=2.0cm,top=1cm,bottom=2cm}
@@ -33,8 +34,12 @@
 \date{最后更新 \today} 
 
 \begin{document}
-\maketitle
-
+%\maketitle
+\includepdf[pages=-,fitpaper]{合集.pdf}
 \input{python}
+
+\includepdf[pages=-,fitpaper]{../基础知识/机器学习.pdf}
+\includepdf[pages=-,fitpaper]{../基础知识/深度学习.pdf}
+
 
 \end{document}

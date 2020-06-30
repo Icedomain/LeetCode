@@ -7,23 +7,23 @@ class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         if len(nums) == 0:
             return [-1, -1]
-        min = 0
-        max = len(nums) - 1
-        while min <= max:
-            pos = (min + max) // 2
-            if nums[pos] > target:
-                max = pos - 1
-            elif nums[pos] < target:
-                min = pos + 1
+        l = 0
+        r = len(nums) - 1
+        while l <= r:
+            mid = (l + r) // 2
+            if nums[mid] > target:
+                r = mid - 1
+            elif nums[mid] < target:
+                l = mid + 1
             else:
-                # when nums[pos] == target
-                # find the min and max
-                for i in range(pos, max + 1) :
+                # when nums[mid] == target
+                # find the l and r
+                for i in range(mid, r + 1) :
                     if nums[i] == target:
-                        max = i
-                for i in range(pos, min -1 , -1) :
+                        r = i
+                for i in range(mid, l -1 , -1) :
                     if nums[i] == target:
-                        min = i
-                return [min, max]
+                        l = i
+                return [l, r]
         return [-1, -1]
 

@@ -49,7 +49,7 @@ class Solution:
         res = []
         visited = set()
 
-        for i in range(m*n):
+        for _ in range(m*n):
             res.append(matrix[x][y])
             visited.add((x,y))
             nx,ny = x+dx[di],y+dy[di]

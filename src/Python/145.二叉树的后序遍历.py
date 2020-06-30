@@ -17,6 +17,7 @@ class Solution:
         result = []
         stack = []
         stack.append(root)
+        
         while stack:
             p = stack.pop()
             result.append(p.val)

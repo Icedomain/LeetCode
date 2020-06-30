@@ -15,8 +15,9 @@ class Solution:
         if inorder :
             # 后序的尾部就是root
             # 中序中,root值左边就是左子树,右边是右子树
-            idx = inorder.index(postorder.pop())
-            root = TreeNode(inorder[idx])
+            val = postorder.pop()
+            root = TreeNode(val)
+            idx = inorder.index(val)            
             # 递归构造子树先right后left
             root.right = self.buildTree(inorder[idx+1:],postorder)
             root.left  = self.buildTree(inorder[0:idx],postorder)
