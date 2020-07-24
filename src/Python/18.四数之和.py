@@ -5,11 +5,13 @@
 #
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
-        res = []
         # 去除异常
         if not nums or len(nums) < 4:
-            return res
+            return []
         nums.sort()
+    
+        
+        res = []
         # 第一个数遍历
         for i in range(len(nums) - 3):
             if i > 0 and nums[i] == nums[i - 1]:
@@ -35,4 +37,40 @@ class Solution:
                         R -= 1
         return res
 
+        '''
+        # 方法二 递归
+        res = self.nSumTarget(nums ,4 , 0 , target)
+        return res
+        '''
+
+    def nSumTarget(self ,nums , n , start , target ):
+        sz = len(nums)
+        res = []
+        if n < 2 :
+            return []
+        elif n == 2:
+            l ,r = start , sz - 1
+            while l < r :
+                val = nums[l] + nums[r]
+                if val < target:
+                    l += 1
+                elif val > target :
+                    r -= 1
+                else:
+                    res.append([nums[l] , nums[r]])
+                    while (l<r and nums[l] == nums[l+1]) : l += 1
+                    while (l<r and nums[r] == nums[r-1]) : r -= 1
+                    l += 1
+                    r -= 1
+        else :
+            i = start
+            while i < sz :
+                sub = self.nSumTarget(nums,n-1,i+1,target-nums[i])
+                for arr in sub:
+                    arr.append(nums[i])
+                    res.append(arr)
+                while i < sz - 1 and nums[i]==nums[i+1] :
+                    i += 1
+                i += 1
+        return res
 

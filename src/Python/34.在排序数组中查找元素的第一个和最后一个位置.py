@@ -7,8 +7,7 @@ class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         if len(nums) == 0:
             return [-1, -1]
-        l = 0
-        r = len(nums) - 1
+        l , r = 0 , len(nums) - 1
         while l <= r:
             mid = (l + r) // 2
             if nums[mid] > target:
@@ -17,13 +16,11 @@ class Solution:
                 l = mid + 1
             else:
                 # when nums[mid] == target
-                # find the l and r
-                for i in range(mid, r + 1) :
-                    if nums[i] == target:
-                        r = i
-                for i in range(mid, l -1 , -1) :
-                    if nums[i] == target:
-                        l = i
-                return [l, r]
+                lc = rc = mid 
+                while lc >= 0 and nums[lc] == target:
+                    lc -= 1
+                while rc <= len(nums)-1 and nums[rc] == target:
+                    rc += 1
+                return [lc+1, rc-1]
         return [-1, -1]
 

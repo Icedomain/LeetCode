@@ -30,3 +30,4 @@ class Solution:
             else:
                 up_list[index] = e[1]
         return len(up_list)
+

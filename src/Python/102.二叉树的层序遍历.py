@@ -27,4 +27,3 @@ class Solution:
         self.traverse(root.left,level+1,result)
         self.traverse(root.right,level+1,result)
 
-

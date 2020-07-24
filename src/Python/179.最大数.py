@@ -20,12 +20,13 @@ class Solution:
         
         if set(nums) == {0}: 
             return '0'
-        for i in range(len(nums), 0, -1):
-            tmp = 0
-            for j in range(i):
-                if not self.compare(nums[j], nums[tmp]):
+        # 冒泡排序
+        for i in range(len(nums)):
+            tmp = i
+            for j in range(i, len(nums)):
+                if self.compare(nums[j], nums[tmp]):
                     tmp = j
-            nums[tmp], nums[i-1] = nums[i-1], nums[tmp]
+            nums[tmp], nums[i] = nums[i], nums[tmp]
         return "".join(map(str, nums))
         
     def compare(self, n1, n2):

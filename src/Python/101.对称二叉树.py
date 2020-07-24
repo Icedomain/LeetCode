@@ -12,15 +12,16 @@
 
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
-        if root is None:
+        if not root :
             return True
         return self.yes(root.left ,root.right)
     
     def yes(self,left,right):
-        if left is None and right is None:
+        if not left and not right:
             return True
-        if left and right and left.val == right.val:
-            if self.yes(left.left,right.right) and self.yes(left.right,right.left):
+        elif left and right and left.val == right.val:
+            if self.yes(left.left,right.right) and \
+                self.yes(left.right,right.left):
                 return True
         return False
 

@@ -17,7 +17,7 @@ class Solution:
         dummy.next = head
         slow = fast = dummy
         # 先走n步
-        for i in range(n):
+        for _ in range(n):
             fast = fast.next
 
         # slow 少走n步

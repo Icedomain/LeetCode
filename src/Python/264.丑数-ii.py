@@ -6,19 +6,18 @@
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
         ugly = [1]
-        i2,i3,i5 = 0,0,0
-        idx = 1
-        while idx < n :
-            newugly = min([ugly[i2]*2 , ugly[i3]*3 ,ugly[i5]*5])
+        idx2 = idx3 = idx5 = 0
+        i = 1
+        while i < n:
+            newugly = min(ugly[idx2]*2,ugly[idx3]*3,ugly[idx5]*5)
             ugly.append(newugly)
-
-            while ugly[i2]*2<= newugly:
-                i2 += 1
-            while ugly[i3]*3<= newugly:
-                i3 += 1
-            while ugly[i5]*5<= newugly:
-                i5 += 1
-            idx += 1            
+            while ugly[idx2]*2 <= newugly:
+                idx2 += 1
+            while ugly[idx3]*3 <= newugly:
+                idx3 += 1
+            while ugly[idx5]*5 <= newugly:
+                idx5 += 1
+            i += 1
         return ugly[-1]
 
 

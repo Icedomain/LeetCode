@@ -9,10 +9,9 @@ class Solution:
             return s
         
         '''
-        temp = s.split(' ')
-        temp = [t for t in temp if len(t) > 0]
-        temp.reverse()
-        return ' '.join(temp)
+        s = s.split(' ')
+        s = [i for i in s if len(i) > 0]
+        return " ".join(reversed(s))
         '''
         s = s + " "
         l = 0

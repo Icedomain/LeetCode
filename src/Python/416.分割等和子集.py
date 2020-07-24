@@ -12,6 +12,7 @@ class Solution:
         target //= 2
 
         # 行nums 列对应 目标值
+        # 从数组的 [0, i] 这个子区间内挑选一些正整数，每个数只能用一次，使得这些数的和恰好等于 j
         dp = [[False]*(target+1) for _ in range(len(nums))]
         # 每一列赋值 
         if nums[0] <= target:

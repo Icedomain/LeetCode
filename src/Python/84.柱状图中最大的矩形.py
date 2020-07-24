@@ -10,9 +10,9 @@ class Solution:
         stack = [-1]
         res = 0
         
-        for idx, val in enumerate(heights):
+        for idx in range(len(heights)):
             # 不是单调栈
-            while heights[stack[-1]] > val:
+            while heights[stack[-1]] > heights[idx]:
                 h = heights[stack.pop()]
                 w = idx - stack[-1] -1
                 res = max(res, h*w)

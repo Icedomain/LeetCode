@@ -12,15 +12,15 @@
 
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
-        if root is None:
+        if not root :
             return 0
-        elif root.left and root.right:
-            return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right)) 
-        elif root.left:
-            return 1 + self.maxDepth(root.left)
-        elif root.right:
+        elif not root.left:
             return 1 + self.maxDepth(root.right)
-        else:
-            return 1
-        
+        elif not root.right:
+            return 1 + self.maxDepth(root.left)
+        elif root.left and root.right:
+            return 1 + max(
+                self.maxDepth(root.left),
+                self.maxDepth(root.right)
+                ) 
 

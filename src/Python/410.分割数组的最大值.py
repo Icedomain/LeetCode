@@ -13,6 +13,7 @@ class Solution:
             mid = (right + left) // 2
             count = self.count(nums,mid)
             if count > m:
+                # 次数太多说明 mid值太小
                 left = mid + 1
             else:
                 right = mid

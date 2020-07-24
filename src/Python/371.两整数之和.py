@@ -5,10 +5,10 @@
 #
 class Solution:
     def getSum(self, a: int, b: int) -> int:
-        MAX_INT = 0x7FFFFFFF
-        MIN_INT = 0x80000000
-        MASK = 0x100000000
-        while b:
-            a, b = (a ^ b) % MASK, ((a & b) << 1) % MASK
-        return a if a <= MAX_INT else ~((a % MIN_INT) ^ MAX_INT)
+        x = 0xffffffff
+        a, b = a & x, b & x
+        while b != 0:
+            # a是当前位 b是进位
+            a, b = (a ^ b), (a & b) << 1 & x
+        return a if a <= 0x7fffffff else ~(a ^ x)
 

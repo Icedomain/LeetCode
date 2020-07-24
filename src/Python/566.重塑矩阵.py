@@ -12,11 +12,9 @@ class Solution:
         res = [[]]
         for i in range(row):
             for j in range(col):
-                k = nums[i][j]
-                if len(res[-1]) < c:
-                    res[-1].append(k)
-                else:
-                    res.append([k])
+                if len(res[-1]) == c:
+                    res.append([])
+                res[-1].append(nums[i][j])
         return res
         
 

@@ -13,33 +13,30 @@ class Node:
 """
 class Solution:
     def copyRandomList(self, head: 'Node') -> 'Node':
-        if head is None:
+        if not head:
             return None
         # 复制next部分
-        headcopy = head
-        while headcopy:
-            node = Node(headcopy.val)
-            node.next = headcopy.next
-            headcopy.next = node
-            headcopy = node.next
+        cur = head
+        while cur :
+            nexttmp = cur.next
+            node = Node(cur.val)
+            node.next = nexttmp
+            cur.next = node
+            cur = nexttmp
         # 复制random部分
-        headcopy = head
-        while headcopy:
-            if headcopy.random:
-                headcopy.next.random = headcopy.random.next
-            headcopy = headcopy.next.next
-
+        cur = head
+        while cur :
+            if cur.random:
+                cur.next.random = cur.random.next
+            cur = cur.next.next
         # 拆分两个单链表
-        src = head
+        cur = head
         pnew = res = head.next
-
         while pnew.next:
-            src.next = pnew.next
-            src = src.next
-            pnew.next = src.next
+            cur.next = pnew.next
+            cur = cur.next
+            pnew.next = cur.next
             pnew = pnew.next
-        src.next = None
         pnew.next = None
-
+        cur.next = None
         return res
-

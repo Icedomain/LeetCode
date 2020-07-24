@@ -10,7 +10,7 @@ class Solution:
         res = []
         for i, n in enumerate(nums):
             # 左边的索引超出了滑动窗
-            if deque and deque[0] == i - k:
+            if deque and i - deque[0] == k:
                 deque.pop(0)
             # 队列填充填充大数的原则 
             while deque and nums[deque[-1]] < n:

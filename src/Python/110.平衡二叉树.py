@@ -15,7 +15,7 @@ class Solution:
         return self.check(root) != -1
 
     def check(self,root):
-        if root is None:
+        if not root :
             return 0
         l = self.check(root.left)
         r = self.check(root.right)

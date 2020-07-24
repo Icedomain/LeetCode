@@ -5,7 +5,6 @@
 #
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        
         if n == 0:
             return 1
         elif n < 0:
@@ -17,17 +16,18 @@ class Solution:
             return self.myPow(x*x, n // 2)
         
     def myPow2(self, x: float, n: int) -> float:
+        if x == 0: 
+            return 0
         if n == 0:
             return 1
         elif n < 0:
-            x = 1/x
-            n *= -1
+            x, n = 1 / x, -n
         
         res = 1
         while n:
             # 奇数
             if n & 1 :
-                res = res*x
-            x = x**2
+                res *= x
+            x *= x
             n >>= 1
         return res

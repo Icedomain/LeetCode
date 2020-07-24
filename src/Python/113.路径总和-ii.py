@@ -12,19 +12,20 @@
 
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
-        if root is None:
+        if not root:
             return []
-        result = []
-        self.dfs(root, sum, [], result)
-        return result
-    
-    def dfs(self,root,sum,path,result):
-        if root is None:
+        res = []
+        self.dfs(root , sum ,[],res)
+        return res
+
+    def dfs(self,root ,sum ,path,res):
+        if not root:
             return
-        if root. left is None and root.right is None and sum == root.val:
-            path.append(root.val)
-            result .append(path)
-            
-        self.dfs(root.left,  sum - root.val, path + [root.val], result)
-        self.dfs(root.right, sum - root.val, path + [root.val], result)
+        # 这里判断不能是sum==0 和root是None 
+        # 因为可能是单侧有节点的情况 这样子不是支路 但是可以返回 矛盾了
+        elif sum == root.val and (not root.left) and (not root.right) :
+            res.append(path+[root.val])
+            return
+        self.dfs(root.left , sum - root.val ,path + [root.val],res)
+        self.dfs(root.right ,sum - root.val ,path + [root.val],res)
 
