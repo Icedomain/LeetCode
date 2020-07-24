@@ -10,8 +10,9 @@ class Solution:
         self.dfs(nums, 0, [], res)
         return res
     
-    def dfs(self, nums, index, path, res):
+    def dfs(self, nums, start, path, res):
+        # 直接加 不用管剩下的情况
         res.append(path)
-        for i in range(index, len(nums)):
+        for i in range(start, len(nums)):
             self.dfs(nums, i+1, path+[nums[i]], res)
 

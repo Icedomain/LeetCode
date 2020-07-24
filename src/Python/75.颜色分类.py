@@ -5,6 +5,7 @@
 #
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
+        # 计数排序
         count = [0,0,0]
         for num in nums:
             count[num] += 1

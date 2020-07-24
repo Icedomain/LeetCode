@@ -12,6 +12,7 @@ class Solution:
     def dfs(self,n,k,start,path,res):
         if 0 == k and path not in res:
             res.append(path)
+            return
         for i in range(start,n+1):
             self.dfs(n,k-1,i+1,path+[i] ,res)
 
