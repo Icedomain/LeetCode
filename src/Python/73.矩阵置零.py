@@ -30,23 +30,26 @@ class Solution:
         '''
         # 第一行出现一个0
         firstRowHasZero = not all(matrix[0])
+        is_col = False if matrix[0][0] else True
         m = len(matrix)
         n = len(matrix[0])
         # 第一行第一列做标记
         for i in range(1,m):
-            for j in range(n):
+            if matrix[i][0] == 0:
+                is_col = True
+            for j in range(1,n):
                 if matrix[i][j] == 0:
                     matrix[0][j] = matrix[i][0] = 0
         # 置0
         for i in range(1,m):
-            for j in range(n-1,-1,-1):
+            for j in range(1,n):
                 if matrix[i][0] == 0 or matrix[0][j] == 0:
                     matrix[i][j] = 0
-        # 补一下第一行的
         
+        # 补一下第一行 第一列        
         if firstRowHasZero:
             matrix[0] = [0] * n
-        
-        return matrix
-        
-
+        if is_col:
+            for i in range(m):
+                matrix[i][0] = 0
+        return

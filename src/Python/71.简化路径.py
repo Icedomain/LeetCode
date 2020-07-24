@@ -10,7 +10,8 @@ class Solution:
             if child in ('' , '.'):
                 pass
             elif child == '..':
-                if res:res.pop()
+                if res:
+                    res.pop()
             else:
                 res.append(child)
         return '/' + '/'.join(res)

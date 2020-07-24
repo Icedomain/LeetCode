@@ -13,5 +13,5 @@ class Solution:
             elif x < mid**2:
                 r = mid
             else:
-                l = mid+1
+                l = mid + 1
 

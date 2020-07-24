@@ -29,8 +29,5 @@ class Solution:
 
         if digits[0] == 0:
             digits.pop(0)
-
         return digits
-
-        
 

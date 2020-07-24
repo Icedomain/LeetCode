@@ -59,6 +59,7 @@ class Solution:
             else:
                 # 如果不满足条件，换一个方向进行遍历
                 di = (di+1)%4  
-                x,y = x+dx[di],y+dy[di]
+                nx,ny = x+dx[di],y+dy[di]
+                x,y = nx,ny
         return res
 

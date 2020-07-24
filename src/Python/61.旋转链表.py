@@ -26,7 +26,7 @@ class Solution:
         # 连成一个环
         pointer.next = head
 
-        for i in range(k):
+        for _ in range(k):
             pointer = pointer.next
         
         # 断开

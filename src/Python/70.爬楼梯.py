@@ -10,7 +10,7 @@ class Solution:
         # 初始的两个　输入1 or 2 
         a, b = 1, 2
         # 从n大于3开始
-        for i in range(2, n):
-            b ,a = a+b , b 
+        for _ in range(3, n+1):
+            b ,a = a + b , b 
         return b
 

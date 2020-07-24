@@ -9,9 +9,8 @@ class Solution:
             return 0
         tmp = s.split(' ')
         tmp = [t for t in tmp if len(t) > 0]
-        if len(tmp) == 0:
+        if not tmp:
             return 0
         else:
             return len(tmp[-1])
-        
 
