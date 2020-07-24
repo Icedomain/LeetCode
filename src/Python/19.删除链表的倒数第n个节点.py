@@ -11,7 +11,7 @@
 
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        if head is None:
+        if not head:
             return None
         dummy = ListNode(-1)
         dummy.next = head

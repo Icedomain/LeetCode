@@ -5,6 +5,7 @@
 #
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
+        # 桶排序
         self.bucket_sort(nums)
 
         for i in range(len(nums)):
@@ -13,10 +14,10 @@ class Solution:
         return len(nums)+1
 
     def bucket_sort(self,nums):
+        # nums[i]的位置应该放i+1
         for i in range(len(nums)):
             while 0 <= nums[i] < len(nums) and nums[i] != nums[nums[i]-1]:
                 temp = nums[i]-1
                 nums[i] = nums[temp]
                 nums[temp] = temp +1 
-        return
 

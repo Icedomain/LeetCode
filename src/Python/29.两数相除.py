@@ -12,6 +12,7 @@ class Solution:
         
         dividend, divisor = abs(dividend), abs(divisor)
         res = 0
+        # 快除法
         while dividend >= divisor:
             temp, i = divisor, 1
             while dividend >= temp:

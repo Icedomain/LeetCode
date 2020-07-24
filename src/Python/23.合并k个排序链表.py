@@ -24,19 +24,19 @@ class Solution:
         return self.mergeTwolists(self.mergeK(lists, low, mid), self.mergeK(lists, mid + 1, high))
 
     def mergeTwolists(self, l1, l2):
-        if l1 is None:
+        if not l1:
             return l2
-        if l2 is None:
+        if not l2:
             return l1
-        head = curr = ListNode(-1)
+        head = cur = ListNode(-1)
         while l1 and l2:
             if l1.val <= l2.val:
-                curr.next = l1
+                cur.next = l1
                 l1 = l1.next
             else:
-                curr.next = l2
+                cur.next = l2
                 l2 = l2.next
-            curr = curr.next
-        curr.next = l1 or l2
+            cur = cur.next
+        cur.next = l1 or l2
         return head.next
 

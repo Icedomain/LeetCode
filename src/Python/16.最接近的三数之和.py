@@ -12,8 +12,6 @@ class Solution:
             l,r = i+1,len(nums)-1
             while l < r:
                 sum_val = nums[i]+nums[l]+nums[r]
-                if sum_val == target:
-                    return sum_val
                 if abs(res-target)>abs(sum_val-target):
                     res = sum_val
                 if sum_val < target:

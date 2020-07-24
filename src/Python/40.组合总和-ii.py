@@ -7,21 +7,20 @@ class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         candidates.sort()                      
         res = []
-        self.combine_sum_2(candidates,target, 0, [], res)
+        self.dfs(candidates,target, 0, [], res)
         return res
         
-    def combine_sum_2(self, nums,target, start, path, res):
+    def dfs(self, nums,target, start, path, res):
         # 超过了
         if target < 0:
             return
         if target == 0 :
             res.append(path)
             return
-        
         for i in range(start, len(nums)):
             # 解集不重复
             if i > start and nums[i] == nums[i - 1]:
                 continue
-            self.combine_sum_2(nums,target - nums[i],
+            self.dfs(nums,target - nums[i],
                     i + 1, path + [nums[i],], res)
 

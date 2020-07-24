@@ -11,8 +11,7 @@ class Solution:
         return res
         
     def dfs(self, nums, path, res):
-        if not nums :
-            # nums已经全部压入到path里面了
+        if not nums:
             res.append(path)
             return
         for i in range(len(nums)):
