@@ -10,7 +10,7 @@ class Solution:
         # 遍历寻找开头
         for i in range(m):
             for j in range(n):
-                if self.dfs(board,word,visited,i,j,0):
+                if board[i][j] == word[0] and self.dfs(board,word,visited,i,j,0):
                     return True
         return False
 
@@ -24,10 +24,10 @@ class Solution:
         
         if board[i][j] == word[start]:
             visited[i][j] = True
-            ret = self.dfs(board,word,visited,i+1,j,start+1) or \
-                  self.dfs(board,word,visited,i-1,j,start+1) or \
-                  self.dfs(board,word,visited,i,j+1,start+1) or \
-                  self.dfs(board,word,visited,i,j-1,start+1)
+            ret =   self.dfs(board,word,visited,i+1,j,start+1) or \
+                    self.dfs(board,word,visited,i-1,j,start+1) or \
+                    self.dfs(board,word,visited,i,j+1,start+1) or \
+                    self.dfs(board,word,visited,i,j-1,start+1)
             visited[i][j] = False
 
             return ret

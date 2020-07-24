@@ -26,6 +26,3 @@ class Solution:
             p2 -= 1
 
 
-
-        
-

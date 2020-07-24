@@ -14,7 +14,7 @@ class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if root is None:
             return []
-        '''
+        
         result = []
         stack = []
         p = root
@@ -23,14 +23,14 @@ class Solution:
             if p:
                 stack.append(p)
                 p = p.left
+            # 没有了之后 压右树
             else:
                 p = stack.pop()
                 result.append(p.val)
                 p = p.right
         return result
-        '''
-
-        return self.inorder(root)
+        
+        # return self.inorder(root)
 
     def inorder(self,r):
         if r:

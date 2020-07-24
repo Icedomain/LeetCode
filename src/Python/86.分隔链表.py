@@ -28,5 +28,4 @@ class Solution:
 
         return h1.next
 
-        
 

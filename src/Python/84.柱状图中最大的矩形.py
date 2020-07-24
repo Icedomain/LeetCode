@@ -14,7 +14,7 @@ class Solution:
             # 不是单调栈
             while heights[stack[-1]] > heights[idx]:
                 h = heights[stack.pop()]
-                w = idx - stack[-1] -1
+                w = idx - stack[-1] - 1
                 res = max(res, h*w)
             stack.append(idx)
         return res
