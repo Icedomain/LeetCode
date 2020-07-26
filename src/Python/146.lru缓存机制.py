@@ -7,16 +7,14 @@ class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.cache = {}
+        # 存放使用频率的key 大的放头
         self.queue = []        
-
-    def update(self,key):
-        # 移到头部去
-        self.queue.remove(key)
-        self.queue.insert(0,key)
 
     def get(self, key: int) -> int:
         if key in self.cache:
-            self.update(key)
+            # 更新一下操作的元素
+            self.queue.remove(key)
+            self.queue.insert(0,key)
             return self.cache[key]
         else:
             return -1        
@@ -27,7 +25,8 @@ class LRUCache:
         if key in self.cache: # 已经在了
             self.queue.remove(key)
         elif len(self.queue) == self.capacity: # 满了
-            del self.cache[self.queue.pop()]
+            top = self.queue.pop()
+            del self.cache[top]
 
         self.cache[key] = value
         self.queue.insert(0,key)

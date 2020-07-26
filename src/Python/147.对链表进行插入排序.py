@@ -11,23 +11,23 @@
 
 class Solution:
     def insertionSortList(self, head: ListNode) -> ListNode:
-        dummy = ListNode(-1000)
+        dummy = ListNode(-float('inf'))
         dummy.next = head
-        p = dummy
+
         cur = head
         while cur and cur.next:
-            val = cur.next.val
             # 顺序的
-            if cur.val < val:
+            if cur.val < cur.next.val:
                 cur = cur.next
                 continue
+            val = cur.next.val
             # 找到p(小于的最后一个节点)
-            # 这个相当于p重新初始化
-            if p.next.val > val:
-                p = dummy
+            p = dummy
             while p.next.val < val:
                 p = p.next
             # 右边的节点插入到左边去
+            # p p.next cur cur.next cur.next.next 换成
+            # p cur.next p.next cur cur.next.next
             next_step = cur.next
             cur.next = cur.next.next
             next_step.next = p.next

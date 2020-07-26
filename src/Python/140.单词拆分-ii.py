@@ -24,12 +24,12 @@ class Solution:
     def dfs(self,s,prev,cur,path,res):
         if cur == 0:
             # 终止条件
-            temp = " ".join(list(reversed(path)))
+            temp = " ".join(path)
             res.append(temp)
             return
 
         for i in range(cur-1,-1,-1):
             if prev[cur][i]:
-                self.dfs(s,prev,i,path+[s[i:cur]],res)
+                self.dfs(s,prev,i,[s[i:cur]] + path,res)
 
 

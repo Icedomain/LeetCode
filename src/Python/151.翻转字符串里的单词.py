@@ -16,12 +16,11 @@ class Solution:
         s = s + " "
         l = 0
         res = []
-        for i in range(l,len(s)):
+        for i in range(len(s)):
             if s[i] == " " :
                 if l != i:
                     res.append(s[l:i])
                 l = i + 1
-
         res.reverse()
         return " ".join(res)
 

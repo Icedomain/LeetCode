@@ -9,9 +9,7 @@ class Solution:
         return 2*sum(set(nums)) - sum(nums)
         '''
         res = 0
-        for i in range(len(nums)):
-            res = res ^ nums[i]
+        for n in nums:
+            res = res ^ n
         return res
-
-
 
