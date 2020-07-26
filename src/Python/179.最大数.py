@@ -21,9 +21,11 @@ class Solution:
         if set(nums) == {0}: 
             return '0'
         # 冒泡排序
+        # 大数放前面 
         for i in range(len(nums)):
             tmp = i
             for j in range(i, len(nums)):
+                # j > tmp 则 tmp <- j 
                 if self.compare(nums[j], nums[tmp]):
                     tmp = j
             nums[tmp], nums[i] = nums[i], nums[tmp]

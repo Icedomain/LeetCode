@@ -26,16 +26,10 @@ class BSTIterator:
         self._inorder(root.right)
 
     def next(self) -> int:
-        """
-        @return the next smallest number
-        """
         self.index += 1
         return self.nodes_sorted[self.index]
 
     def hasNext(self) -> bool:
-        """
-        @return whether we have a next smallest number
-        """
         return self.index + 1 < len(self.nodes_sorted)
 
 # Your BSTIterator object will be instantiated and called as such:

@@ -9,8 +9,9 @@ class Solution:
         result = []
 
         while n > 0:
-            result.append(capitals[(n-1)%26])
-            n = (n-1) // 26
+            n -= 1
+            result.append(capitals[n%26])
+            n //= 26
         result.reverse()
         return ''.join(result)
 
