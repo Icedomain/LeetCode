@@ -19,10 +19,10 @@ class Solution:
                 
         for i in range(1,ls+1):
             for j in range(1,lt+1):
-                # 跳过上一个字符串匹配过程
+                # 跳过当前字符串匹配过程,至少是上一步的结果
                 dp[i][j] = dp[i-1][j]
                 # 要匹配的话
                 if s[i-1] == t[j-1]:
                     dp[i][j] += dp[i - 1][j - 1]
-                
+
         return dp[-1][-1]

@@ -12,11 +12,11 @@
 
 class Solution:
     def hasPathSum(self, root: TreeNode, sum: int) -> bool:
-        if root is None:
+        if not root:
             return False
         
         sum -= root.val
-        if sum == 0 and root.left is None and root.right is None:
+        if sum == 0 and not root.left and not root.right:
             return True
         left = self.hasPathSum(root.left,sum)
         right = self.hasPathSum(root.right,sum)

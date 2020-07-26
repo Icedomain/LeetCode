@@ -12,26 +12,24 @@
 
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
-        
         if not root:
             return []
-        # use stack
-        stack = [[root]]
+        # use stack  , only list
+        # bfs 
+        stack = [root]
         res = []
         while stack:
-            # 取出最新装入的list
-            top = stack.pop()
             # 一直在头部插入以达到倒序
-            res.insert(0, [t.val for t in top])
+            res.insert(0, [t.val for t in stack])
             # 向下新一轮扫描
             temp = []
-            for node in top:
+            for node in stack:
                 if node.left :
                     temp.append(node.left)
                 if node.right :
                     temp.append(node.right)
-            if temp:
-                stack.append(temp)
+            # update
+            stack = temp
         return res
         '''
         # 递归法

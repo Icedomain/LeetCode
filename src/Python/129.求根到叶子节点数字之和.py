@@ -20,7 +20,6 @@ class Solution:
         if root.left is None and root.right is None:
             return sum*10+root.val
 
-        return self.sum_tree(root.left,sum*10+root.val)+ self.sum_tree(root.right,sum*10+root.val)
-
-        
+        return  self.sum_tree(root.left,sum*10+root.val) +\
+                self.sum_tree(root.right,sum*10+root.val)
 

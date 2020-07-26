@@ -13,6 +13,7 @@ class Solution:
         if start == len(s):
             res.append(path)
             return 
+        # start -> i 是回文的 
         for i in range(start, len(s)):
             if self.isPalindrome(s, start, i):
                 self.dfs(s,res,path +[s[start:i+1]],i + 1)
