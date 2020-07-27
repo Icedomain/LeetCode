@@ -4,15 +4,18 @@
 # [215] 数组中的第K个最大元素
 #
 
+import random
 class Solution:
-    def findKthLargest2(self, nums: List[int], k: int) -> int:
-        '''
-        nums.sort()
-        return nums[-k]
-        '''
-        return self.qSelect(nums, 0, len(nums) - 1, k)
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        self.qSelect(nums, 0, len(nums) - 1, k)
+        return nums[k-1]
 
     def qSelect(self, nums, start, end, k):
+        '''
+        # 改进版 随机挑选值
+        i = random.randint(start, end)
+        nums[end], nums[i] = nums[i], nums[end]
+        '''
         # 找一个参照值
         pivot = nums[end]
         left , right = start ,end 
@@ -25,16 +28,16 @@ class Solution:
         nums[left], nums[end] = nums[end], nums[left]
         # 左边的个数够没(从0开始到k-1,共k个)
         if left == k-1:
-            return nums[left]
+            return 
         # 还不够
         elif left < k-1:
-            return self.qSelect(nums, left + 1, end, k)
+            self.qSelect(nums, left + 1, end, k)
         # 太多了
         else:
-            return self.qSelect(nums, start, left - 1, k)
+            self.qSelect(nums, start, left - 1, k)
 
 
-    def findKthLargest(self, nums: List[int], k: int) -> int:
+    def findKthLargest2(self, nums: List[int], k: int) -> int:
         if k == 0:
             return []
         self.randomized_selected(nums, 0, len(nums) - 1, k)

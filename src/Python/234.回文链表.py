@@ -19,7 +19,12 @@ class Solution:
         prev = None
         while fast and fast.next:
             fast = fast.next.next
-            prev, prev.next, slow = slow, prev, slow.next
+            # 反转
+            tmp = slow.next
+            slow.next = prev
+            prev = slow
+            slow = tmp
+            # 反转+slow下一步
         # 奇
         if fast:
             slow = slow.next

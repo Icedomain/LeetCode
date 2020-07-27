@@ -20,6 +20,6 @@ class Solution:
                                    dp[i - 1][j],
                                    dp[i][j - 1]
                                    ) + 1
-                    res = max(res, dp[i][j] ** 2)
-        return res
+                    res = max(res, dp[i][j])
+        return res ** 2
 

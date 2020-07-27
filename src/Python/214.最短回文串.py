@@ -8,7 +8,7 @@ class Solution:
         '''
         # 暴力法
         r = s[::-1]
-        for i in range(len(s)) :
+        for i in range(len(r)) :
             if s[0: len(s)-i ] == r[i:] :
                 return r[:i] + s
         return ""
