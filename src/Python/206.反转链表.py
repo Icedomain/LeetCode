@@ -14,22 +14,20 @@ class Solution:
         '''
         if head is None or head.next is None:
             return head
-        curr = head # 他来往后走
+        cur = head # 他来往后走
         prev = None  # 新的反转的
-        while curr:
+        while cur:
             # 下一步先保存下来
-            nextcurr = curr.next
+            nextcur = cur.next
             # 反转的接上去
-            curr.next = prev
-            prev  = curr
+            cur.next = prev
+            prev  = cur
             # 下一步
-            curr = nextcurr
+            cur = nextcur
         return prev
         '''
         # 递归方法
-        if not head:
-            return None
-        if not head.next:
+        if not head or not head.next:
             return head
         headNode = self.reverseList(head.next)
         # head headNode 顺序(环)

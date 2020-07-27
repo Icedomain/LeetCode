@@ -14,7 +14,7 @@ class Solution:
                 break
         return res
         '''
-
+        # 其实就是求首尾的公共前缀
         i = 0
         while m != n:
             m >>= 1

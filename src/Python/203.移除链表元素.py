@@ -14,13 +14,13 @@ class Solution:
     def removeElements(self, head: ListNode, val: int) -> ListNode:
         dummy = ListNode(-1)
         dummy.next = head
-        prev, curr = dummy, head
-        while curr :
-            if curr.val == val:
-                # prev 跟上了curr
-                prev.next = curr.next
+        prev, cur = dummy, head
+        while cur :
+            if cur.val == val:
+                # prev 跟上了cur
+                prev.next = cur.next
             else:
-                prev = curr
-            curr = curr.next
+                prev = cur
+            cur = cur.next
         return dummy.next
 

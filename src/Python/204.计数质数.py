@@ -7,6 +7,7 @@ class Solution:
     def countPrimes(self, n: int) -> int:
         if n <= 2:
             return 0
+        # 0 1 肯定不是质数
         res = [0,0]+ [1]*(n-2)
         for i in range(2,n):
             # 这些没改过

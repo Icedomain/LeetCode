@@ -7,10 +7,9 @@ class Solution:
     def rob(self, nums: List[int]) -> int:
         if not nums :
             return 0
-        f1 = 0
-        f2 = 0
-        for i in nums:
-            fi = max(f2+i,f1)
+        f1 , f2 = 0 , 0
+        for n in nums:
+            fi = max(f2+n,f1)
             f1 ,f2 = fi ,f1
         return f1
         

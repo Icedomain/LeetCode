@@ -5,7 +5,7 @@
 #
 class Solution:
     def minSubArrayLen(self, s: int, nums: List[int]) -> int:
-        res = float('inf')
+        res = len(nums) + 1
         left = 0
         sumval = 0
 
@@ -13,10 +13,11 @@ class Solution:
             sumval += nums[i]
             while sumval >= s:
                 res = min(res, i-left+1) 
+                # 右移动
                 sumval -= nums[left]
                 left += 1
 
-        if res != float('inf'):
+        if res != len(nums) + 1:
             return res
         else:
             return 0
