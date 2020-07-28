@@ -7,8 +7,7 @@ class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         if not nums:
             return 0
-        
-        '''
+
         dp = [1] * len(nums)
         for i in range(1,len(nums)):
             for j in range(i):
@@ -34,4 +33,4 @@ class Solution:
             else:
                 up_list[left] = nums[i]
         return len(up_list)
-
+        '''

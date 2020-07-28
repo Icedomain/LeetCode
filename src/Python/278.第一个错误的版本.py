@@ -10,12 +10,12 @@
 
 class Solution:
     def firstBadVersion(self, n):
-        l ,r = 0 , n-1
+        l ,r = 0 , n - 1
         while l <= r:
             mid = (l+r)//2
             if isBadVersion(0) == isBadVersion(mid):
                 l = mid + 1
-            elif isBadVersion(n) == isBadVersion(mid):
-                r = mid -1
+            elif isBadVersion(n-1) == isBadVersion(mid):
+                r = mid - 1
         return  l
 

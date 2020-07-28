@@ -4,7 +4,6 @@
 # [303] 区域和检索 - 数组不可变
 #
 class NumArray:
-
     def __init__(self, nums: List[int]):
         self.list = [0] *(len(nums)+1)
         for i in range(len(nums)):
