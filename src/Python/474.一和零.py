@@ -15,9 +15,12 @@ class Solution:
             count1 = str.count('1')
             
             # 遍历可容纳的背包 
+            # 反向遍历
             for zeroes in range(m, count0 - 1, -1):
                 for ones in range(n, count1 - 1, -1):
-                    dp[zeroes][ones] = max(dp[zeroes][ones] ,
-                    1 + dp[zeroes - count0][ones - count1])
+                    dp[zeroes][ones] = max(
+                        dp[zeroes][ones] ,
+                        dp[zeroes - count0][ones - count1] + 1
+                    )
         return dp[m][n] 
 

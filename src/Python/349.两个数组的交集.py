@@ -14,10 +14,11 @@ class Solution:
         
         return res
         '''
-        nums1.sort()
-        nums2.sort()
+
         if not nums1 or not nums2:
             return []
+        nums1.sort()
+        nums2.sort()
         if nums1[0] == nums2[0]:
             foo = self.intersection(nums1[1:],nums2[1:])
             if foo and foo[0] == nums1[0]:
@@ -28,5 +29,4 @@ class Solution:
             return self.intersection(nums1[1:],nums2)
         else:
             return self.intersection(nums1,nums2[1:])
-
 

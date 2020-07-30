@@ -25,7 +25,7 @@ class Solution:
                 if num2[0] =='0' and j >= i + 2 :
                     break
                 num3 = num[j+1:]
-                if self.isValid(num1, num2, num3) and num3:
+                if num3 and self.isValid(num1, num2, num3):
                     return True
         return False
 
@@ -34,9 +34,9 @@ class Solution:
         while num3:
             sum_num = str(int(num1) + int(num2))
             if num3.startswith(sum_num):
-                num1 = num2
-                num2 = sum_num
+                num1 , num2 = num2 , sum_num
                 num3 = num3[len(sum_num):]
             else:
                 return False
         return True
+

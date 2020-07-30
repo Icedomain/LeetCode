@@ -5,11 +5,11 @@
 #
 class Solution:
     def findTargetSumWays(self, nums: List[int], S: int) -> int:
-        sum_nums = sum(nums)
-        if sum_nums < S or (S + sum_nums)%2 != 0:
+        sums = sum(nums)
+        if sums < S or (S + sums)%2 != 0:
             return 0
 
-        target = (S + sum_nums) // 2
+        target = (S + sums) // 2
         dp = [0]*(target + 1)
         dp[0] = 1
         for num in nums:

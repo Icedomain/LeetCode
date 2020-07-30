@@ -10,11 +10,14 @@ class Solution:
         # bin(4**2) '0b10000'
         # bin(4**3) '0b1000000'
         
-        # return num > 0 and num & (num-1) == 0 and len(bin(num)[3:]) % 2 == 0   
-
+        # 结构上 num & (num-1)肯定为0
+        # 还要保证 0的个数是偶数
+        return num > 0 and num & (num-1) == 0 and len(bin(num)[3:]) % 2 == 0   
+        '''
         while num > 1:
             num /= 4
         if num == 1:
             return True
         else:
             return False
+        '''

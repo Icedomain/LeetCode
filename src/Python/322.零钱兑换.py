@@ -12,6 +12,7 @@ class Solution:
         
         coins.sort()
         dp = [float('inf')] * (amount + 1)
+        # 0元只需要0个硬币
         dp[0] = 0
 
         for coin in coins:

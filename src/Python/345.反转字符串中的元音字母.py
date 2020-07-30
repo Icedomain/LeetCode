@@ -6,8 +6,7 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
         s = list(s)
-        n =len(s)
-        l ,r = 0,n-1
+        l ,r = 0, len(s) - 1
         while l < r:
             if s[l] not in 'aeiouAEIOU':
                 l += 1
