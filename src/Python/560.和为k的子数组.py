@@ -19,6 +19,7 @@ class Solution:
 
         count = 0
         sums = 0
+        # 和为key的出现的val次
         dic = {0:1}
         
         for num in nums:

@@ -27,8 +27,9 @@ class Solution:
                     # 合并掉
                     else:
                         uf[x] = uf[x].union(uf[y])
+                        #uf[x].update(uf[y])
                         del uf[y]
-                    print(uf)
+                    #print(uf)
         return len(uf)
         '''
         # 方法二

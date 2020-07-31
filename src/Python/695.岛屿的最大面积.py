@@ -15,10 +15,11 @@ class Solution:
 
     def dfs(self, grid, i, j):
         # 终止条件
-        if i <  0 or j < 0 or i >= len(grid) or j >= len(grid[0]) or grid[i][j] == 0:
+        if i <  0 or j < 0 or i >= len(grid) or\
+            j >= len(grid[0]) or grid[i][j] == 0:
             return 0
 
-        # 四个方向搜索
+        # 四个方向搜索 当前还有一个位置的所以加一
         grid[i][j] = 0
         res = 1
         res += self.dfs(grid, i-1, j)

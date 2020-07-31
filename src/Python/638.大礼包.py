@@ -27,7 +27,10 @@ class Solution:
             for i in range(len(needs)):
                 needs[i] -= sp[i]
             if all(needs[i] >= 0 for i in range(len(needs))):
-                res = min(res, self.dfs(price , special , needs) + sp[-1])
+                res = min(
+                    res,
+                    sp[-1] + self.dfs(price , special , needs)
+                    )
             for i in range(len(needs)):
                 needs[i] += sp[i]
 
