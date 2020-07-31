@@ -8,8 +8,8 @@ class Solution:
         if K%2 == 0 or K%5 == 0:
             return -1
         temp = 1
-        len = 1
+        leng = 1
         while temp % K :
             temp = (temp % K) * 10 + 1
-            len += 1
-        return len
+            leng += 1
+        return leng

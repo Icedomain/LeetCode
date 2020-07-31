@@ -8,28 +8,32 @@ class Solution:
         m, n = len(grid), len(grid[0])
         if m == 1 and n == 1:
             return 0
-        
+        # 极限情况就是走四边 最多 m+n+3 个障碍物
         k = min(k, m + n - 3)
+        # 记录
         visited = set((0, 0, k))
         q = [(0, 0, k) ]
 
         step = 0
         while q:
             step += 1
-            cnt = len(q)
-            for _ in range(cnt):
+            tmp = []
+            for _ in range(len(q)):
                 x, y, rest = q.pop(0)
                 for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                     nx, ny = x + dx, y + dy
                     if 0 <= nx < m and 0 <= ny < n:
-                        if grid[nx][ny] == 0 and (nx, ny, rest) not in visited:
+                        # 无障碍
+                        if grid[nx][ny] == 0 and \
+                            (nx, ny, rest) not in visited:
                             if nx == m - 1 and ny == n - 1:
                                 return step
-                            q.append((nx, ny, rest))
+                            tmp.append((nx, ny, rest))
                             visited.add((nx, ny, rest))
-                        elif grid[nx][ny] == 1 and rest > 0 and (nx, ny, rest - 1) not in visited:
-                            q.append((nx, ny, rest - 1))
+                        # 有障碍
+                        elif grid[nx][ny] == 1 and rest > 0 \
+                            and (nx, ny, rest - 1) not in visited:
+                            tmp.append((nx, ny, rest - 1))
                             visited.add((nx, ny, rest - 1))
+            q = tmp
         return -1
-
-

@@ -14,7 +14,8 @@ class Solution:
     def constructFromPrePost(self, pre: List[int], post: List[int]) -> TreeNode:
         if not pre: 
             return None
-        
+        # (root left right)  (left right root)
+        # pre 的left头个是左root post的left的头是左节点
         root = TreeNode(pre[0])
         if len(pre) == 1: 
             return root
