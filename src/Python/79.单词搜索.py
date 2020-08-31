@@ -10,7 +10,8 @@ class Solution:
         # 遍历寻找开头
         for i in range(m):
             for j in range(n):
-                if board[i][j] == word[0] and self.dfs(board,word,visited,i,j,0):
+                if board[i][j] == word[0] and \
+                    self.dfs(board,word,visited,i,j,0):
                     return True
         return False
 
@@ -19,7 +20,8 @@ class Solution:
         if start == len(word):
             return True
         # 溢出 剪枝 or 已经访问过了
-        if i < 0 or j < 0 or i >= len(board) or j >= len(board[0]) or visited[i][j] or board[i][j] != word[start]:
+        if i < 0 or j < 0 or i >= len(board) or j >= len(board[0]) \
+        or visited[i][j] or board[i][j] != word[start]:
             return False
         
         if board[i][j] == word[start]:

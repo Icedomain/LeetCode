@@ -5,7 +5,8 @@
 #
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:   
-        if len(matrix)==0 or len(matrix[0])==0 or target < matrix[0][0] or target > matrix[-1][-1]:
+        if not matrix or not matrix[0] or\
+            target < matrix[0][0] or target > matrix[-1][-1]:
             return False
         row = 0
         col = len(matrix[0]) -1

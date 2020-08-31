@@ -3,14 +3,13 @@
 #
 # [532] 数组中的K-diff数对
 #
+from collections import Counter
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
         if k < 0 :
             return 0
         # 建字典
-        dic = {}
-        for num in nums:
-            dic[num] = dic.get(num,0) + 1
+        dic = dict(Counter(nums))
 
         res = 0
         for num in nums:

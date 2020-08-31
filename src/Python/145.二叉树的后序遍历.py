@@ -11,7 +11,7 @@
 #         self.right = None
 
 class Solution:
-    def postorderTraversal(self, root: TreeNode) -> List[int]:
+    def postorderTraversal2(self, root: TreeNode) -> List[int]:
         if root is None:
             return []
         result = []
@@ -25,4 +25,10 @@ class Solution:
             if p.right:
                 stack.append(p.right)
         return result[::-1]
+
+    def postorderTraversal(self, root: TreeNode) -> List[int]:
+        if root is None:
+            return []
+        return self.postorderTraversal(root.left) +\
+            self.postorderTraversal(root.right) + [root.val]
 

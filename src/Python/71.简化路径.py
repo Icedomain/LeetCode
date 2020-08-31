@@ -8,7 +8,7 @@ class Solution:
         res = []
         for child in path.split('/'):
             if child in ('' , '.'):
-                pass
+                continue
             elif child == '..':
                 if res:
                     res.pop()

@@ -4,8 +4,7 @@
 # [547] 朋友圈
 #
 class Solution:
-    def findCircleNum(self, M: List[List[int]]) -> int:
-        
+    def findCircleNum2(self, M: List[List[int]]) -> int:
         # 方法一
         uf = []
         for i in range(len(M)):
@@ -31,7 +30,16 @@ class Solution:
                         del uf[y]
                     #print(uf)
         return len(uf)
-        '''
+
+    def findIndex(self,target, uf):
+        for idx, comp in enumerate(uf):
+            if target in comp:
+                return idx
+        return -1
+
+
+
+    def findCircleNum(self, M: List[List[int]]) -> int:
         # 方法二
         # 遍历每个人,遍历到过置1
         visited = [0 for _ in range(len(M))]
@@ -44,14 +52,7 @@ class Solution:
                 self.dfs(M, visited, i)
                 count += 1
         return count
-        '''
 
-    def findIndex(self,target, uf):
-        for idx, comp in enumerate(uf):
-            if target in comp:
-                return idx
-        return -1
-    
     # 判断和i认识的都是哪些人
     def dfs(self, M, visited, i):
         # 不需要终止条件

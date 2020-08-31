@@ -5,29 +5,30 @@
 #
 class MyStack:
     def __init__(self):
-        self.list = []
+        self.que1 = []
+        self.que2 = []
         
     def push(self, x: int) -> None:
         # 尾部压入
-        self.list.append(x)
+        self.que1.append(x)
 
     def pop(self) -> int:
         # 尾部弹出
-        if len(self.list) == 0:
-            return
-        else:
-            temp = self.list[-1]
-            del self.list[-1]
-            return temp
+        while len(self.que1) > 1:
+            self.que2.append(self.que1.pop(0))
+        res = self.que1.pop(0)
+        while self.que2:
+            self.que1.append(self.que2.pop(0))
+        return res 
 
     def top(self) -> int:
-        if len(self.list) == 0:
+        if len(self.que1) == 0:
             return
         else:
-            return self.list[-1]
+            return self.que1[-1]
 
     def empty(self) -> bool:
-        return len(self.list) == 0
+        return len(self.que1) == 0
 
 
 # Your MyStack object will be instantiated and called as such:

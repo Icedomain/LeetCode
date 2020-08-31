@@ -11,25 +11,24 @@
 
 class Solution:
     def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
+        if not head or not head.next:
+            return head
         dummy = ListNode(0)
         dummy.next = head
         prev = dummy
-        # 走m-1个
-        for i in range(m-1):
+        # 左边 m-1个
+        for _ in range(m-1):
             prev = prev.next
         # 反转
         temp = None
         cur = prev.next
-        for i in range(n-m+1):
-            next = cur.next
-            # reverse
+        for _ in range(n-m+1):
+            next_node = cur.next
             cur.next = temp
             temp = cur
-            # 下一个
-            cur = next
+            cur = next_node
         # cur指向的是最后部分,中间已经没有了
-        # None 的下一个
-        # 最后面一段
+
         prev.next.next = cur
         '''
         wi = temp
@@ -39,6 +38,5 @@ class Solution:
         '''
         # 中间一段
         prev.next = temp
-
         return dummy.next
 

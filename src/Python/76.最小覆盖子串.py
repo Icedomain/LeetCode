@@ -8,32 +8,32 @@ class Solution:
     def minWindow(self, s: str, t: str) -> str:
         if s is None or len(s) < len(t):
             return ""
-        need = collections.defaultdict(int)
         # 需求字典
-        for c in t:
-            need[c] += 1
+        need = collections.defaultdict(int)
+        for ch in t:
+            need[ch] += 1
+        
         # 避免每次都统计need情况
         needCnt = len(t)
-        #记录起始位置
+
+        #记录起始位置 并记录起终点
         i = 0 
-        # 用两个元素，方便之后记录起终点
         res = (0, float('inf'))  
 
-        # 增加右边界使滑窗包含t
         for j,c in enumerate(s):
-            # 不在t里的不会大于0
+            # c 在need(t) 里面 , 不在t里的不会大于0
             if need[c] > 0:
                 needCnt -= 1
             need[c] -= 1
             # 收缩左边界直到无法再去掉元素
             # 注意，处理的是i
             if needCnt == 0:
-                while True:
-                    c = s[i]
-                    if need[c] == 0: #表示再去掉就不行了(need>0)
+                while i < j :
+                    if need[s[i]] == 0: #表示再去掉就不行了(need>0)
                         break
                     else:
-                        need[c] += 1
+                        # 右移
+                        need[s[i]] += 1
                         i += 1
                 # 子串更新
                 if j-i < res[1] - res[0]:

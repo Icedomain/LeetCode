@@ -10,7 +10,8 @@ class Solution:
         if leng %2 :
             return self.findk(nums1,nums2,leng//2)
         else:
-            return (self.findk(nums1,nums2,leng//2-1)+self.findk(nums1,nums2,leng//2))/2.0
+            return (self.findk(nums1,nums2,leng//2-1)+\
+                self.findk(nums1,nums2,leng//2))/2.0
     # 找k大的数
     def findk(self,nums1,nums2,k):
         if not nums1:

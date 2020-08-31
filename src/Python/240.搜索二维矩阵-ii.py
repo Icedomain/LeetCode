@@ -5,7 +5,7 @@
 #
 class Solution:
     def searchMatrix(self, matrix, target):
-        if not len(matrix) or not len(matrix[0]):
+        if not matrix or not matrix[0]:
             return False
         # 左下角
         r , c = len(matrix) - 1 , 0 

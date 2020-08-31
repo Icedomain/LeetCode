@@ -25,8 +25,8 @@ class LRUCache:
         if key in self.cache: # 已经在了
             self.queue.remove(key)
         elif len(self.queue) == self.capacity: # 满了
-            top = self.queue.pop()
-            del self.cache[top]
+            back = self.queue.pop()
+            del self.cache[back]
 
         self.cache[key] = value
         self.queue.insert(0,key)

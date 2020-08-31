@@ -3,8 +3,9 @@
 #
 # [300] 最长上升子序列
 #
+from bisect import bisect_left
 class Solution:
-    def lengthOfLIS(self, nums: List[int]) -> int:
+    def lengthOfLIS2(self, nums: List[int]) -> int:
         if not nums:
             return 0
 
@@ -15,10 +16,11 @@ class Solution:
                 if(nums[j] < nums[i]):
                     dp[i] = max(dp[i] , dp[j] + 1 )
         return max(dp)
-        '''
-
+        
+    def lengthOfLIS(self, nums: List[int]) -> int:
         up_list = []
         for i in range(len(nums)):
+            '''
             # 二分查找
             left, right = 0, len(up_list)-1
             while left <= right:          
@@ -27,10 +29,12 @@ class Solution:
                     left = mid+1
                 else:
                     right = mid-1
+            '''
+            left = bisect_left(up_list,nums[i])
             # 若 left 等于数组长度，则需要添加新值；否则，在 left 位置的值覆盖为新值
             if left == len(up_list):
                 up_list.append(nums[i])
             else:
                 up_list[left] = nums[i]
         return len(up_list)
-        '''
+

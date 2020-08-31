@@ -5,22 +5,34 @@
 #
 class MyQueue:
     def __init__(self):
-        self.stack = []
+        self.st1 = []
+        self.st2 = []
 
     def push(self, x: int) -> None:
         # 尾部加入
-        self.stack.append(x)
+        self.st1.append(x)
 
     def pop(self) -> int:
-        temp = self.stack[0]
-        self.stack.pop(0)
-        return temp
+        while len(self.st1) > 1:
+            self.st2.append(self.st1.pop())
+        res = self.st1.pop()
+        while self.st2:
+            self.st1.append(self.st2.pop())
+        return res
 
     def peek(self) -> int:
-        return self.stack[0]
+        # pop 和 peek 差一个队首的 append
+        while len(self.st1) > 1:
+            self.st2.append(self.st1.pop())
+        res = self.st1.pop()
+        self.st2.append(res)
+        while self.st2:
+            self.st1.append(self.st2.pop())
+        return res
 
     def empty(self) -> bool:
-        return len(self.stack) == 0
+        return len(self.st1) == 0
+
 
 # Your MyQueue object will be instantiated and called as such:
 # obj = MyQueue()

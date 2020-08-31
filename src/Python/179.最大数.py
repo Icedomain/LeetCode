@@ -9,15 +9,14 @@ class LargerNumKey(str):
         return x+y < y+x
 
 class Solution:
-    def largestNumber(self, nums: List[int]) -> str:
-        '''
+    def largestNumber2(self, nums: List[int]) -> str:
         if set(nums) == {0}: 
             return '0'
         str_nums = sorted([str(i) for i in nums], key=LargerNumKey,reverse = True)
         largest = "".join(str_nums)
         return largest
-        '''
-        
+
+    def largestNumber(self, nums: List[int]) -> str:        
         if set(nums) == {0}: 
             return '0'
         # 冒泡排序

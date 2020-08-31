@@ -10,22 +10,19 @@
 #         self.next = None
 
 class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
-        '''
-        if head is None or head.next is None:
+    def reverseList2(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
             return head
-        cur = head # 他来往后走
-        prev = None  # 新的反转的
+        cur = head
+        prev = None
         while cur:
-            # 下一步先保存下来
             nextcur = cur.next
-            # 反转的接上去
             cur.next = prev
-            prev  = cur
-            # 下一步
+            prev = cur
             cur = nextcur
         return prev
-        '''
+
+    def reverseList(self, head: ListNode) -> ListNode:
         # 递归方法
         if not head or not head.next:
             return head

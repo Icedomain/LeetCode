@@ -11,7 +11,7 @@
 #         self.right = None
 
 class Solution:
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
+    def preorderTraversal2(self, root: TreeNode) -> List[int]:
         if root is None:
             return []
         result = []
@@ -26,3 +26,8 @@ class Solution:
                 stack.append(p.left)
         return result
 
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        if root is None:
+            return []
+        return [root.val] + self.preorderTraversal(root.left) +\
+            self.preorderTraversal(root.right)

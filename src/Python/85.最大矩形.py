@@ -5,7 +5,6 @@
 #
 class Solution:
     def maximalRectangle(self, matrix: List[List[str]]) -> int:
-        '''
         if not matrix or not matrix[0]:
             return 0
         m , n = len(matrix),len(matrix[0])
@@ -27,7 +26,8 @@ class Solution:
                     max_area = max(max_area, h * w)                
                 stack.append(k)            
         return max_area
-        '''
+
+    def maximalRectangle2(self, matrix: List[List[str]]) -> int:
         if not matrix or not matrix[0]:
             return 0
         m , n = len(matrix),len(matrix[0])

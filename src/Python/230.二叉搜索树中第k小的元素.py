@@ -12,12 +12,17 @@
 #         self.right = None
 
 class Solution:
-    def kthSmallest(self, root: TreeNode, k: int) -> int:
-        '''
+    def kthSmallest2(self, root: TreeNode, k: int) -> int:
         # 方法一
         reslist = self.inorder(root)
         return reslist[k - 1]
-        '''
+
+    def inorder(self,r):
+        if not r:
+            return []
+        return self.inorder(r.left) + [r.val] + self.inorder(r.right)          
+
+    def kthSmallest(self, root: TreeNode, k: int) -> int:
         # 方法二
         # 左子树有多少个点
         n = self.count(root.left)
@@ -29,12 +34,6 @@ class Solution:
         # 递归到右子树
         else:
             return self.kthSmallest(root.right,k-1-n)
-
-    def inorder(self,r):
-        if r:
-            return self.inorder(r.left) + [r.val] + self.inorder(r.right)  
-        else:
-            return []
 
     def count(self,root):
         if not root :

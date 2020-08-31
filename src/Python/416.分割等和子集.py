@@ -33,7 +33,7 @@ class Solution:
         if target % 2 == 1:
             return False
         target >>= 1
-
+        '''
         # 行nums 列对应 目标值
         # 从数组的 [0, i] 这个子区间内挑选一些正整数，每个数只能用一次，使得这些数的和恰好等于 j
         dp = [[False]*(target+1) for _ in range(len(nums))]
@@ -53,4 +53,14 @@ class Solution:
             if dp[i][target]:
                 return True
         return dp[-1][-1]
+        '''
+        dp = [False]*(target+1)
+        dp[0] = True
+        for i in range(len(nums)):
+            for j in range(target,nums[i]-1,-1):
+                dp[j] = dp[j] or dp[j - nums[i]]
+                if dp[target] : 
+                    return True
+
+        return dp[target]
 
