@@ -15,10 +15,10 @@ class Solution:
         if not root :
             return []
         result = [[]]
-        self.traverse(root,0,result,True)
+        self.dfs(root,0,result,True)
         return result
 
-    def traverse(self,root,level,result,flag):
+    def dfs(self,root,level,result,flag):
         if root is None:
             return
         if level >= len(result):
@@ -28,6 +28,31 @@ class Solution:
             result[level].append(root.val)
         else:
             result[level].insert(0,root.val)
-        self.traverse(root.left,level+1,result, not flag)
-        self.traverse(root.right,level+1,result, not flag)
+        self.dfs(root.left,level+1,result, not flag)
+        self.dfs(root.right,level+1,result, not flag)
+
+    # bfs
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        queue = [root]
+        res = []
+        depth = 1
+        while queue:
+            size = len(queue)
+            level = []
+            for _ in range(size):
+                cur = queue.pop(0)
+                if not cur:
+                    continue
+                # 奇数正向　偶数反向
+                if depth % 2:
+                    level.append(cur.val)
+                else:
+                    level.insert(0,cur.val)
+                queue.append(cur.left)
+                queue.append(cur.right)
+            if level:
+                res.append(level)
+            depth += 1
+        return res
+
 

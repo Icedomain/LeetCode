@@ -11,7 +11,7 @@
 #         self.right = None
 
 class Solution:
-    def maxDepth(self, root: TreeNode) -> int:
+    def maxDepth2(self, root: TreeNode) -> int:
         if not root :
             return 0
         elif not root.left:
@@ -23,4 +23,21 @@ class Solution:
                 self.maxDepth(root.left),
                 self.maxDepth(root.right)
                 ) 
+
+    def maxDepth(self, root: TreeNode) -> int:
+        if not root:
+            return 0
+        depth = 0
+        queue = [root]
+        while queue:
+            depth += 1
+            level = []
+            while queue:
+                cur = queue.pop(0)
+                if cur.left:
+                    level.append(cur.left)
+                if cur.right:
+                    level.append(cur.right)
+            queue = level
+        return depth
 

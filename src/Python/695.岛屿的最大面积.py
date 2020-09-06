@@ -21,11 +21,9 @@ class Solution:
 
         # 四个方向搜索 当前还有一个位置的所以加一
         grid[i][j] = 0
-        res = 1
-        res += self.dfs(grid, i-1, j)
-        res += self.dfs(grid, i, j-1)
-        res += self.dfs(grid, i+1, j)
-        res += self.dfs(grid, i, j+1)
-
+        res = self.dfs(grid, i-1, j) + \
+            self.dfs(grid, i, j-1) + \
+            self.dfs(grid, i+1, j) + \
+            self.dfs(grid, i, j+1) + 1
         return res
 

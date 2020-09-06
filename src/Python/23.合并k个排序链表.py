@@ -18,17 +18,15 @@ class Solution:
     def mergeK(self, lists, low, high):
         if low == high:
             return lists[low]
-        elif low + 1 == high:
-            return self.mergeTwolists(lists[low], lists[high])
-        mid = (low + high) // 2
-        return self.mergeTwolists(self.mergeK(lists, low, mid), self.mergeK(lists, mid + 1, high))
+        elif low < high:
+            mid = (low + high) // 2
+            return self.mergeTwolists(
+                self.mergeK(lists, low, mid),\
+                self.mergeK(lists, mid + 1, high)
+                )
 
     def mergeTwolists(self, l1, l2):
-        if not l1:
-            return l2
-        if not l2:
-            return l1
-        head = cur = ListNode(-1)
+        dummy = cur = ListNode(-1)
         while l1 and l2:
             if l1.val <= l2.val:
                 cur.next = l1
@@ -38,5 +36,5 @@ class Solution:
                 l2 = l2.next
             cur = cur.next
         cur.next = l1 or l2
-        return head.next
+        return dummy.next
 

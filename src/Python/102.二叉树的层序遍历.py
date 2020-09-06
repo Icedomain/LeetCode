@@ -11,19 +11,37 @@
 #         self.right = None
 
 class Solution:
-    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    def levelOrder2(self, root: TreeNode) -> List[List[int]]:
         if not root :
             return []
         result = [[]]
-        self.traverse(root,0,result)
+        self.dfs(root,0,result)
         return result
 
-    def traverse(self,root,level,result):
+    def dfs(self,root,level,result):
         if not root:
             return
         if level >= len(result):
             result.append([])
         result[level].append(root.val)
-        self.traverse(root.left,level+1,result)
-        self.traverse(root.right,level+1,result)
+        self.dfs(root.left,level+1,result)
+        self.dfs(root.right,level+1,result)
+
+    # bfs
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        queue = [root]
+        res = []
+        while queue:
+            size = len(queue)
+            level = []
+            for _ in range(size):
+                cur = queue.pop(0)
+                if not cur:
+                    continue
+                level.append(cur.val)
+                queue.append(cur.left)
+                queue.append(cur.right)
+            if level:
+                res.append(level)
+        return res
 
