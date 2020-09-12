@@ -20,11 +20,11 @@ class Solution:
         p = root
         while stack or p:
             # 先把左边的压进去
-            if p:
+            if p :
                 stack.append(p)
                 p = p.left
             # 没有了之后 压右树
-            else:
+            else :
                 p = stack.pop()
                 result.append(p.val)
                 p = p.right

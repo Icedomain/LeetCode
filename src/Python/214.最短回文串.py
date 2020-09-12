@@ -4,16 +4,15 @@
 # [214] 最短回文串
 #
 class Solution:
-    def shortestPalindrome(self, s: str) -> str:
-        '''
+    def shortestPalindrome1(self, s: str) -> str:
         # 暴力法
         r = s[::-1]
         for i in range(len(r)) :
             if s[0: len(s)-i ] == r[i:] :
                 return r[:i] + s
         return ""
-        '''
-        '''
+
+    def shortestPalindrome2(self, s: str) -> str:
         # 双指针法
         i = 0
         # 找到从头开始，最长的回文子串
@@ -25,12 +24,12 @@ class Solution:
         # 后缀
         suffix = s[i:]
         return suffix[::-1] + self.shortestPalindrome(s[:i]) + suffix
-        '''
 
+
+    def shortestPalindrome(self, s: str) -> str:
         # kmp算法
         table = self.kmp(s + "#" + s[::-1])
         return s[table[-1]:][::-1] + s
-        
 
     def kmp(self,p):
         table = [0] * len(p)

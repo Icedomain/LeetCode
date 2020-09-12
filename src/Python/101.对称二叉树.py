@@ -20,8 +20,7 @@ class Solution:
         if not left and not right:
             return True
         elif left and right and left.val == right.val:
-            if self.yes(left.left,right.right) and \
-                self.yes(left.right,right.left):
-                return True
+            return self.yes(left.left,right.right) and \
+                self.yes(left.right,right.left)
         return False
 

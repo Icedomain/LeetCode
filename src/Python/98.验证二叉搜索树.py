@@ -18,7 +18,8 @@ class Solution:
         if root is None:
             return True
         elif root.val > low and root.val < upper :
-            return self.isOK(root.left,low,root.val) and self.isOK(root.right,root.val,upper)
+            return self.isOK(root.left,low,root.val) \
+                and self.isOK(root.right,root.val,upper)
         else:
             return False
 

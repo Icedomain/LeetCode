@@ -18,8 +18,8 @@ class Solution:
             for i in range(j-1,-1,-1):
                 if s[i] == s[j] and (j-i < 2 or dp[i+1][j-1]):
                     dp[i][j] = True
-                if dp[i][j] and max_len < j-i+1:
-                    max_len = j - i + 1
+                if dp[i][j] and max_len < j - i:
+                    max_len = j - i
                     left, right = i, j
         return s[left:right+1]
 

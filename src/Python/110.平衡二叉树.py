@@ -19,7 +19,7 @@ class Solution:
             return 0
         l = self.check(root.left)
         r = self.check(root.right)
-        if l == -1 or r == -1 or abs(l-r)>1:
+        if l == -1 or r == -1 or abs(l-r) > 1 :
             return -1
         return 1 + max(l,r)
 

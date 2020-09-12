@@ -18,7 +18,6 @@
 
 class Solution:
     def sortedListToBST(self, head: ListNode) -> TreeNode:
-        '''
         if not head :
             return None
         if not head.next:
@@ -35,8 +34,8 @@ class Solution:
         root.left = self.sortedListToBST(head)
         root.right = self.sortedListToBST(head2.next)
         return root 
-        '''
-
+        
+    def sortedListToBST2(self, head: ListNode) -> TreeNode:
         if not head :
             return None
         nums = []
@@ -53,6 +52,5 @@ class Solution:
         root = TreeNode(nums[mid])
         root.left = self.sortedArrayToBST(nums[:mid])
         root.right = self.sortedArrayToBST(nums[mid+1:])
-
         return root
 

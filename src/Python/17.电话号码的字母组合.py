@@ -5,7 +5,7 @@
 #
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
-        dmap = {
+        self.dic = {
         '2': 'abc',
         '3': 'def',
         '4': 'ghi',
@@ -18,9 +18,9 @@ class Solution:
         if len(digits) == 0:
             return []
         if len(digits) == 1:
-            return list(dmap[digits])
+            return list(self.dic[digits])
         prev = self.letterCombinations(digits[:-1])
-        additional = dmap[digits[-1]]
+        additional = self.dic[digits[-1]]
         return [s + c for s in prev for c in additional]
         
 

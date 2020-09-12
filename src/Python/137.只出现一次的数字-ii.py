@@ -9,10 +9,10 @@ class Solution:
 
     def singleNumber(self, nums: List[int]) -> int:
         # 出现一次的位，和两次的位
-        b1,b2 = 0,0
+        ones,twos = 0,0
         for n in nums:
-            # 既不在出现一次的b1，也不在出现两次的b2里面，我们就记录下来，出现了一次，再次出现则会抵消
-            b1 = (b1 ^ n) & ~ b2 
-            # 既不在出现两次的b2里面，也不再出现一次的b1里面(不止一次了)，记录出现两次，第三次则会抵消
-            b2 = (b2 ^ n) & ~ b1
-        return b1
+            # 既不在出现一次的ones，也不在出现两次的twos里面，我们就记录下来，出现了一次，再次出现则会抵消
+            ones = (ones ^ n) & ~ twos 
+            # 既不在出现两次的twos里面，也不再出现一次的ones里面(不止一次了)，记录出现两次，第三次则会抵消
+            twos = (twos ^ n) & ~ ones
+        return ones

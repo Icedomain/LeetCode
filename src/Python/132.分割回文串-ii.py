@@ -4,7 +4,7 @@
 # [132] 分割回文串 II
 #
 class Solution:
-    def minCut(self, s: str) -> int:
+    def minCut2(self, s: str) -> int:
         n = len(s)
         dp = [[False for _ in range(n)] for _ in range(n)]
         # f[0->n](共n+1个)  f[n-1]=0 , f[n]=-1
@@ -22,4 +22,20 @@ class Solution:
                     # f 选取裁剪更少的方案
                     f[i] = min(f[i], f[j + 1] + 1)
         return f[0]
+
+    def minCut(self, s: str) -> int:
+        f = list(range(len(s)))
+        n = len(s)
+        dp = [[False] * n for _ in range(n)]
+        for j in range(n):
+            dp[j][j] = True
+            for i in range(j+1):
+                if s[i] == s[j] and (j - i < 2 or dp[i + 1][j - 1]):
+                    dp[i][j] = True
+                    if i == 0:
+                        f[j] = 0
+                    else:
+                        f[j] = min(f[j], f[i - 1] + 1)
+        return f[-1]
+
 

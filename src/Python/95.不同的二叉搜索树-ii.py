@@ -14,6 +14,7 @@ class Solution:
     def generateTrees(self, n: int) -> List[TreeNode]:
         if n == 0:
             return []
+        # root 的范围
         return self.get_trees(1,n)
 
     def get_trees(self,start,end):
