@@ -3,13 +3,13 @@
 #
 # [76] 最小覆盖子串
 #
-import collections
+from collections import defaultdict
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         if s is None or len(s) < len(t):
             return ""
         # 需求字典
-        need = collections.defaultdict(int)
+        need = defaultdict(int)
         for ch in t:
             need[ch] += 1
         

@@ -4,10 +4,9 @@
 # [48] 旋转图像
 #
 class Solution:
-    def rotate(self, matrix: List[List[int]]) -> None:
+    def rotate2(self, matrix: List[List[int]]) -> None:
         if matrix is None or len(matrix) == 1:
             return
-        '''
         ls = len(matrix)
 
         for i in range(ls // 2):
@@ -21,7 +20,10 @@ class Solution:
                 matrix[begin + k][end] = matrix[begin][begin + k] # 左上角给右上角
                 matrix[begin][begin + k] = temp # 左下角给左上角
         return
-        '''
+
+    def rotate(self, matrix: List[List[int]]) -> None:
+        if matrix is None or len(matrix) == 1:
+            return
         n = len(matrix)
         # 副对角线
         for i in range(n):
@@ -31,5 +33,4 @@ class Solution:
         for i in range(n//2):
             matrix[i], matrix[n-1-i] = matrix[n-1-i], matrix[i]
         return 
-
 

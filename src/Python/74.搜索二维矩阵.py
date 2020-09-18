@@ -5,11 +5,10 @@
 #
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:   
-        if not matrix or not matrix[0] or\
+        if not matrix or not matrix[0] or \
             target < matrix[0][0] or target > matrix[-1][-1]:
             return False
-        row = 0
-        col = len(matrix[0]) -1
+        row , col = 0 , len(matrix[0]) -1
         while row < len(matrix) and col >= 0 :
             if matrix[row][col] > target:
                 col -= 1

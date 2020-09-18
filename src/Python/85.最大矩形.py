@@ -10,22 +10,28 @@ class Solution:
         m , n = len(matrix),len(matrix[0])
         # height 的尾部多了一个0,防止递增错误
         height = [0] * (n+1)
-        max_area = 0        
+        maxArea = 0        
         for i in range(m):
             # 计算h
             for j in range(n):
-                # 遍历到的每行的h
                 height[j] = height[j]+1 if matrix[i][j]=='1' else 0
             # 找出所有h和w的组合 
             # 同84题
-            stack = [-1]
-            for k in range(n + 1):
-                while height[k] < height[stack[-1]]:
-                    h = height[stack.pop()]
-                    w = k - stack[-1] - 1
-                    max_area = max(max_area, h * w)                
-                stack.append(k)            
-        return max_area
+            maxArea = max(maxArea, self.largestRectangleArea(height) )           
+        return maxArea
+
+    def largestRectangleArea(self, heights):
+        stack = [-1]
+        res = 0
+        for i in range(len(heights)):
+            # 不是单调栈
+            while stack and heights[stack[-1]] > heights[i]:
+                h = heights[stack.pop()]
+                w = i - stack[-1] - 1
+                res = max(res, h*w)
+            stack.append(i)
+        return res
+
 
     def maximalRectangle2(self, matrix: List[List[str]]) -> int:
         if not matrix or not matrix[0]:

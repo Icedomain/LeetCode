@@ -11,8 +11,10 @@ class Solution:
         dp = [0] * (len(s)+1)
         dp[0] = dp[1] = 1
         for i in range(2,len(s)+1):
+            # 当前
             if s[i - 1] >= '1' and s[i - 1] <= '9':
                 dp[i] += dp[i - 1]
+            # 上一个
             if s[i-2]=='1' or (s[i-2] == '2' and s[i-1] <= '6'):
                 dp[i] += dp[i - 2]
         return dp[-1]

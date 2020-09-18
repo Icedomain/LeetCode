@@ -4,8 +4,7 @@
 # [73] 矩阵置零
 #
 class Solution:
-    def setZeroes(self, matrix: List[List[int]]) -> None:
-        '''
+    def setZeroes2(self, matrix: List[List[int]]) -> None:
         # 直接法
         row = []
         col = []
@@ -27,7 +26,8 @@ class Solution:
                 matrix[i][j] =0
         
         return matrix
-        '''
+
+    def setZeroes(self, matrix: List[List[int]]) -> None:
         # 第一行出现一个0
         firstRowHasZero = not all(matrix[0])
         is_col = False if matrix[0][0] else True

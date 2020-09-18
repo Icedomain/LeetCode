@@ -10,12 +10,12 @@ class Solution:
         stack = [-1]
         res = 0
         
-        for idx in range(len(heights)):
+        for i in range(len(heights)):
             # 不是单调栈
-            while heights[stack[-1]] > heights[idx]:
+            while stack and heights[stack[-1]] > heights[i]:
                 h = heights[stack.pop()]
-                w = idx - stack[-1] - 1
+                w = i - stack[-1] - 1
                 res = max(res, h*w)
-            stack.append(idx)
+            stack.append(i)
         return res
 

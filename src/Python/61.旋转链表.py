@@ -14,23 +14,23 @@ class Solution:
         if head is None or k == 0:
             return head
         
-        pointer = head
+        cur = head
         length = 1
-        while pointer.next:
-            pointer = pointer.next
+        while cur.next:
+            cur = cur.next
             length += 1
         
         # 左部分多少个
         k = length - k%length
 
         # 连成一个环
-        pointer.next = head
+        cur.next = head
 
         for _ in range(k):
-            pointer = pointer.next
+            cur = cur.next
         
         # 断开
-        head = pointer.next
-        pointer.next = None
+        head = cur.next
+        cur.next = None
         return head
 

@@ -10,7 +10,7 @@ class Solution:
         return res
 
     def dfs(self,n,k,start,path,res):
-        if 0 == k and path not in res:
+        if k == 0 and path not in res:
             res.append(path)
             return
         for i in range(start,n+1):
