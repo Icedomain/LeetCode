@@ -15,7 +15,7 @@ class Solution:
                 if abs(res-target)>abs(sum_val-target):
                     res = sum_val
                 if sum_val < target:
-                    l+=1
+                    l += 1
                 else:
                     r -= 1
         return res

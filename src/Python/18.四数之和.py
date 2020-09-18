@@ -9,8 +9,6 @@ class Solution:
         if not nums or len(nums) < 4:
             return []
         nums.sort()
-    
-        
         res = []
         # 第一个数遍历
         for i in range(len(nums) - 3):

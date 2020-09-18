@@ -12,7 +12,7 @@ class Solution:
             res = res*10 + x%10
             if res > 2**31 - 1:
                 return 0
-            x = x//10
+            x //= 10
 
         return sign * res
 

@@ -15,8 +15,7 @@ class Solution:
             return head
         dummy = ListNode(-1)
         dummy.next = head
-        start = dummy
-        end = start.next
+        start , end = dummy, dummy.next
         
         count = 1
         while end:
@@ -31,7 +30,7 @@ class Solution:
     
     def reverse(self, start, end):
         # 输入一个是前驱,一个后驱
-        prev, cur = start, start.next
+        prev, cur = start.next, start.next
         first = cur
         while cur != end:
             temp = cur.next

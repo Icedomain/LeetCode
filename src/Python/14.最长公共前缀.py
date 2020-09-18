@@ -4,8 +4,7 @@
 # [14] 最长公共前缀
 #
 class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        '''
+    def longestCommonPrefix2(self, strs: List[str]) -> str:
         sz = zip(*strs)
         ret = ""
         for char in sz:
@@ -13,7 +12,8 @@ class Solution:
                 break
             ret +=char[0]
         return ret
-        '''
+
+    def longestCommonPrefix(self, strs: List[str]) -> str:
         if not strs:
             return ''
         strs.sort(key = lambda x : len(x))

@@ -5,7 +5,6 @@
 #
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
-        '''
         # 栈法
         res = []
         stack = []
@@ -27,8 +26,8 @@ class Solution:
             max_len = max(max_len,i-tmp+1)
             i += 1
         return max_len
-        '''
 
+    def longestValidParentheses2(self, s: str) -> int:
         # 动态规划
         if not s:
             return 0

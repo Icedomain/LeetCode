@@ -10,9 +10,11 @@ class Solution:
         elif len(haystack)<= len(needle):
             return -1
         
-        leng = len(needle)
-        for i in range(len(haystack)-leng +1):
-            if needle == haystack[i:i+leng]:
-                return i
+        for i in range(len(haystack)-len(needle)+1):
+            for j in range(len(needle)):
+                if haystack[i+j] != needle[j]:
+                    break
+                if j == len(needle)-1:
+                    return i
         return -1
 

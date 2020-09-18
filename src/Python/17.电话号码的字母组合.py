@@ -20,7 +20,6 @@ class Solution:
         if len(digits) == 1:
             return list(self.dic[digits])
         prev = self.letterCombinations(digits[:-1])
-        additional = self.dic[digits[-1]]
-        return [s + c for s in prev for c in additional]
-        
+        cur = self.dic[digits[-1]]
+        return [s + c for s in prev for c in cur]
 

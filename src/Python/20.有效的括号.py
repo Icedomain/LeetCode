@@ -6,7 +6,7 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         # 判断是否是奇数或空字符
-        if s=='':
+        if s == '':
             return True
         stack = []
         match = {')': '(', ']': '[', '}': '{'}
