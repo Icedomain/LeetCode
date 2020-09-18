@@ -24,11 +24,9 @@ class Solution:
         if left and right :
             return root      
         # 若左子树是none右子树不是，说明右子树找到了p或q
-        if not left :    
+        elif not left :    
             return right
-        # 同理
-        if not right :  
+        elif not right :  
             return left
         return None
-
 

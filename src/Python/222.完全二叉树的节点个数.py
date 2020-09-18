@@ -20,18 +20,18 @@ class Solution:
 
         h_l, h_r = 0, 0
         # 计算当前节点左子树的最大高度
-        curRoot = root
-        while curRoot.left:
+        cur = root
+        while cur.left:
             h_l += 1
-            curRoot = curRoot.left
+            cur = cur.left
         # 计算当前节点右子树的最大高度
-        curRoot = root
-        if curRoot.right:
+        cur = root
+        if cur.right:
             h_r += 1
-            curRoot = curRoot.right
-            while curRoot.left:
+            cur = cur.right
+            while cur.left:
                 h_r += 1
-                curRoot = curRoot.left
+                cur = cur.left
         
         # 左右子树最大高度相同，说明左子树为满二叉树，在右子树继续递归求解     
         if h_l == h_r:

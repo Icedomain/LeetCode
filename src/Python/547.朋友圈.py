@@ -38,7 +38,6 @@ class Solution:
         return -1
 
 
-
     def findCircleNum(self, M: List[List[int]]) -> int:
         # 方法二
         # 遍历每个人,遍历到过置1

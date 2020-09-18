@@ -13,7 +13,7 @@ with open(f'{root}/TeX/python.tex', 'w') as file_object:
     file_object.write(kaitou)
     for file in mycode:
         res = "\lstinputlisting[language=Python]{" + f'{root}/src/Python/{file}' + "}\n" # + "\\newpage\n"
-        print(res)
+        # print(res)
         file_object.write(res)
         #break
 
@@ -29,7 +29,7 @@ with open(f'{root}/TeX/cpp.tex', 'w') as file_object:
     file_object.write(kaitou)
     for file in mycode:
         res = "\lstinputlisting[language=C++]{" + f'{root}/src/Cplusplus/{file}' + "}\n"
-        print(res)
+        # print(res)
         file_object.write(res)
         #break
 

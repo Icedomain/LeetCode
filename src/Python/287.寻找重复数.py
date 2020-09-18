@@ -5,7 +5,8 @@
 #
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        l,r = 0,len(nums)-1
+        # 二分
+        l,r = 0 , len(nums) - 1
         while l < r :
             mid = (l+r)//2
             cnt = 0

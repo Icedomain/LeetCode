@@ -7,8 +7,9 @@ class Solution:
     def fib(self, N: int) -> int:
         if N < 2:
             return N
+        mod = 10**9 + 7
         a,b = 0,1
         for _ in range(2,N+1):
-            a,b = b,(a+b)%(10**9+7)
+            a,b = b,(a+b) % mod
         return b
 

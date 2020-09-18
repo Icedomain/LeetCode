@@ -5,7 +5,6 @@
 #
 class Solution:
     def countDigitOne(self, n: int) -> int:
-        '''
         # 方法一
         res = 0
         a = 1
@@ -20,8 +19,8 @@ class Solution:
             a *= 10
             n //= 10
         return res
-        '''
 
+    def countDigitOne2(self, n: int) -> int:
         if n <= 0 :
             return 0
         digit, res = 1, 0
