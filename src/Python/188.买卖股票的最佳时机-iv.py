@@ -14,7 +14,7 @@ class Solution:
         buy, sell = [-prices[0]]*k , [0]*(k+1)
         for p in prices[1:]:
             for i in range(k):
-                # 买的收益 = max(买、买了再买)
+                # 买的收益 = max(买、卖了再买)
                 buy[i] = max(buy[i], sell[i-1]-p)
                 # 卖的收益 = (卖/买)
                 sell[i] = max(sell[i], buy[i]+p)

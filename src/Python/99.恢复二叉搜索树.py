@@ -11,7 +11,7 @@
 #         self.right = None
 
 class Solution:
-    def recoverTree(self, root: TreeNode) -> None:
+    def recoverTree2(self, root: TreeNode) -> None:
         cur, pre = root, None
         first, second = None, None
         stack = []
@@ -31,14 +31,14 @@ class Solution:
                 cur = node.right
         
         first.val, second.val = second.val, first.val
-        '''
+
+    def recoverTree(self, root: TreeNode) -> None:
         # 定义
         self.pre = None
         self.m1, self.m2 = None, None
 
         self.inorderTraversal(root)
         self.m1.val, self.m2.val = self.m2.val, self.m1.val
-        '''
 
     # 中序遍历
     def inorderTraversal(self, root):
@@ -50,3 +50,4 @@ class Solution:
                 self.m2 = root
             self.pre = root
             self.inorderTraversal(root.right)
+

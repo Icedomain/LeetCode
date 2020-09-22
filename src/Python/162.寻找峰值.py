@@ -3,7 +3,6 @@
 #
 # [162] 寻找峰值
 #
-
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
         n = len(nums)

@@ -16,10 +16,10 @@ class Solution:
         cur = head
         prev = None
         while cur:
-            nextcur = cur.next
+            tmp = cur.next
             cur.next = prev
             prev = cur
-            cur = nextcur
+            cur = tmp
         return prev
 
     def reverseList(self, head: ListNode) -> ListNode:
@@ -32,3 +32,4 @@ class Solution:
         # head headNode head(断开)
         head.next = None
         return headNode
+

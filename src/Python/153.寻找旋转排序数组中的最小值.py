@@ -11,7 +11,7 @@ class Solution:
         while l < r :
             mid = (l+r)//2
             # 左边
-            if nums[0] <= nums[mid]:
+            if nums[mid] > nums[r]:
                 l = mid + 1
             # 在右边
             else:

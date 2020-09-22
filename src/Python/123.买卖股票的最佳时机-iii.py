@@ -4,8 +4,7 @@
 # [123] 买卖股票的最佳时机 III
 #
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        '''
+    def maxProfit2(self, prices: List[int]) -> int:
         """
         对于任意一天考虑四个变量:
         fstBuy: 在该天第一次买入股票可获得的最大收益 
@@ -23,7 +22,8 @@ class Solution:
             secBuy = max(secBuy, fstSell - i)
             secSell = max(secSell, secBuy + i)
         return secSell
-        '''
+
+    def maxProfit(self, prices: List[int]) -> int:
         if not prices:
             return 0
         num = len(prices)

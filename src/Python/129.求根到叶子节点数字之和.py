@@ -15,9 +15,9 @@ class Solution:
         return self.sum_tree(root,0)
 
     def sum_tree(self,root,sum):
-        if root is None:
+        if not root :
             return 0
-        if root.left is None and root.right is None:
+        if not root.left and not root.right:
             return sum*10+root.val
 
         return  self.sum_tree(root.left,sum*10+root.val) +\

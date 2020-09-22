@@ -15,7 +15,8 @@ class Solution:
         if p is None and q is None:
             return True
         elif p and q and p.val == q.val:
-            return self.isSameTree(p.left,q.left) and self.isSameTree(p.right, q.right)
+            return self.isSameTree(p.left,q.left) \
+                and self.isSameTree(p.right, q.right)
         elif p or q :
             return False
 
